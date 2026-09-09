@@ -1,0 +1,14 @@
+[
+  "rainfall_mm",
+  "rainfall_last_3_days",
+  "slope_degrees",
+  "distance_to_river_km",
+  "past_landslide_count",
+  "season_enc",
+  "state_enc",
+  "segment_enc",
+  "month",
+  "day_of_week",
+  "rain_slope_interaction",
+  "rain3_slope_interaction"
+]

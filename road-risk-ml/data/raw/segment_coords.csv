@@ -1,0 +1,580 @@
+road_segment_id,state,road_name,highway_type,centroid_lat,centroid_lon,slope_degrees,distance_to_river_km,past_landslide_count,length_m
+SEG0000,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.112608,93.706396,41.46,8.671,4,4897.6
+SEG0001,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.174678,93.910402,23.2,5.954,2,2357.4
+SEG0002,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.240056,94.113042,40.57,5.878,5,3129.3
+SEG0003,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.295887,94.317403,35.79,9.339,4,2289.0
+SEG0004,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.36739,94.514382,39.46,3.141,5,984.0
+SEG0005,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.426929,94.717834,38.62,11.643,5,2168.5
+SEG0006,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.4848,94.919686,24.74,2.429,4,1753.0
+SEG0007,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.553436,95.121306,40.82,8.703,5,2111.9
+SEG0008,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.610949,95.320373,29.69,4.172,3,1387.0
+SEG0009,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.679105,95.520826,39.67,8.313,6,3761.7
+SEG0010,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.737888,95.719785,34.22,2.538,3,3607.3
+SEG0011,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.805818,95.916046,39.12,7.982,4,3125.0
+SEG0012,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.867567,96.127062,20.77,5.804,4,2515.8
+SEG0013,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.922397,96.320467,21.46,4.095,2,2033.1
+SEG0014,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,27.99304,96.524402,39.6,8.307,5,4218.9
+SEG0015,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,28.050408,96.72577,22.25,8.946,3,2739.9
+SEG0016,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,28.113956,96.928383,23.81,8.66,3,2400.3
+SEG0017,Arunachal Pradesh,Trans-Arunachal Hwy East,national_highway,28.176918,97.129126,29.05,1.964,4,1295.6
+SEG0018,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.093511,93.540349,37.49,3.925,7,4070.8
+SEG0019,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.13545,93.392516,26.81,2.06,5,4590.9
+SEG0020,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.170861,93.246841,27.65,7.371,4,4397.8
+SEG0021,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.202789,93.109132,30.8,7.9,3,3253.2
+SEG0022,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.236543,92.964656,30.4,1.458,3,2185.4
+SEG0023,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.273927,92.832103,34.69,2.877,4,4685.5
+SEG0024,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.305941,92.678243,34.77,1.251,3,2825.7
+SEG0025,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.343754,92.544603,32.17,6.398,6,4738.9
+SEG0026,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.373542,92.390222,26.67,4.647,4,2643.4
+SEG0027,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.411937,92.260514,42.4,2.543,7,3127.0
+SEG0028,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.440801,92.111805,27.03,8.254,4,4028.3
+SEG0029,Arunachal Pradesh,Trans-Arunachal Hwy West,national_highway,27.486431,91.969253,25.76,1.412,4,3130.4
+SEG0030,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.136639,93.629214,40.21,4.489,4,2021.9
+SEG0031,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.183748,93.657337,43.4,2.811,8,988.6
+SEG0032,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.235723,93.677388,42.29,9.235,8,4552.5
+SEG0033,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.298018,93.712724,39.3,8.278,7,2369.4
+SEG0034,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.35484,93.738643,26.56,11.305,5,1315.6
+SEG0035,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.41627,93.756782,24.48,7.593,2,4473.2
+SEG0036,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.471247,93.778921,39.44,11.69,5,1404.4
+SEG0037,Arunachal Pradesh,NH-13 Itanagar-Ziro,national_highway,27.523225,93.81313,23.3,8.454,4,1311.7
+SEG0038,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,27.588555,93.877877,34.53,3.198,6,3804.7
+SEG0039,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,27.660944,94.003873,23.09,11.203,5,2469.8
+SEG0040,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,27.742439,94.130261,36.57,11.512,6,4684.2
+SEG0041,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,27.820355,94.24972,35.85,2.165,5,1389.4
+SEG0042,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,27.899663,94.38132,34.9,11.263,5,2763.0
+SEG0043,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,27.973887,94.495012,22.73,10.124,5,4146.6
+SEG0044,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,28.045161,94.615599,35.15,10.545,7,2532.8
+SEG0045,Arunachal Pradesh,NH-13 Ziro-Along,national_highway,28.127743,94.738373,41.69,5.993,6,1840.9
+SEG0046,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.14985,93.653113,40.41,2.158,7,3296.6
+SEG0047,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.266366,93.739415,27.76,2.583,2,4668.1
+SEG0048,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.376739,93.805995,23.84,2.27,4,1032.7
+SEG0049,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.485929,93.880279,34.78,8.488,3,2453.2
+SEG0050,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.596407,93.957713,41.88,10.362,6,1562.3
+SEG0051,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.716256,94.040873,34.28,5.579,3,1006.9
+SEG0052,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.81055,94.112265,21.3,11.173,4,4343.0
+SEG0053,Arunachal Pradesh,NH-313 Itanagar-Daporijo,national_highway,27.926818,94.178058,40.05,9.574,4,3498.4
+SEG0054,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.104331,93.522586,33.4,6.656,6,2743.8
+SEG0055,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.155553,93.349706,26.66,2.537,5,2807.1
+SEG0056,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.208812,93.181909,29.19,5.03,5,2393.7
+SEG0057,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.254288,92.999662,43.72,11.08,6,2819.8
+SEG0058,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.31421,92.828756,41.21,8.178,4,3037.4
+SEG0059,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.360766,92.65021,38.37,3.226,7,3718.2
+SEG0060,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.410737,92.483685,22.38,8.983,4,4730.9
+SEG0061,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.462232,92.300312,40.02,7.531,4,4087.0
+SEG0062,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.510704,92.126945,26.33,7.491,2,3387.9
+SEG0063,Arunachal Pradesh,Tawang Rd NH-13,national_highway,27.561891,91.961621,34.31,6.126,3,2995.1
+SEG0064,Arunachal Pradesh,Aalo-Pasighat Rd,primary,28.160288,94.855656,32.3,7.596,3,1302.9
+SEG0065,Arunachal Pradesh,Aalo-Pasighat Rd,primary,28.133674,94.967904,36.45,5.605,7,4052.1
+SEG0066,Arunachal Pradesh,Aalo-Pasighat Rd,primary,28.123255,95.074274,42.46,9.388,7,2329.6
+SEG0067,Arunachal Pradesh,Aalo-Pasighat Rd,primary,28.09941,95.17739,23.69,11.297,3,2639.2
+SEG0068,Arunachal Pradesh,Aalo-Pasighat Rd,primary,28.0795,95.291926,33.82,11.298,4,2813.4
+SEG0069,Arunachal Pradesh,Changlang-Tirap Rd,primary,27.145046,95.675316,37.94,11.463,7,1297.6
+SEG0070,Arunachal Pradesh,Changlang-Tirap Rd,primary,27.144311,95.769179,23.05,7.471,2,851.7
+SEG0071,Arunachal Pradesh,Changlang-Tirap Rd,primary,27.130238,95.863591,27.38,6.044,4,2657.7
+SEG0072,Arunachal Pradesh,Changlang-Tirap Rd,primary,27.116759,95.972097,39.53,2.216,5,4492.6
+SEG0073,Arunachal Pradesh,Changlang-Tirap Rd,primary,27.103113,96.071838,22.66,11.99,5,3595.9
+SEG0074,Arunachal Pradesh,Dibang Valley Rd,secondary,28.038053,95.598041,42.43,1.319,5,1400.7
+SEG0075,Arunachal Pradesh,Dibang Valley Rd,secondary,28.113287,95.708282,42.77,8.219,5,951.9
+SEG0076,Arunachal Pradesh,Dibang Valley Rd,secondary,28.18703,95.818318,35.15,9.816,7,4367.5
+SEG0077,Arunachal Pradesh,Dibang Valley Rd,secondary,28.259787,95.927998,43.19,9.493,5,3732.1
+SEG0078,Arunachal Pradesh,Dibang Valley Rd,secondary,28.342811,96.034723,23.12,6.55,4,3446.0
+SEG0079,Arunachal Pradesh,Dibang Valley Rd,secondary,28.40915,96.142622,38.37,3.123,6,1937.2
+SEG0080,Arunachal Pradesh,Lower Subansiri Rd,secondary,27.518214,93.789883,35.29,1.6,4,977.9
+SEG0081,Arunachal Pradesh,Lower Subansiri Rd,secondary,27.444476,93.701676,24.33,2.009,4,1570.8
+SEG0082,Arunachal Pradesh,Lower Subansiri Rd,secondary,27.370721,93.632383,39.6,8.0,7,1409.5
+SEG0083,Arunachal Pradesh,Lower Subansiri Rd,secondary,27.310283,93.559629,34.45,8.698,5,3526.8
+SEG0084,Arunachal Pradesh,Lower Subansiri Rd,secondary,27.239458,93.488534,32.71,5.444,6,1300.7
+SEG0085,Arunachal Pradesh,Pakke-Kessang Rd,tertiary,27.225278,92.860641,27.62,5.707,3,3366.1
+SEG0086,Arunachal Pradesh,Pakke-Kessang Rd,tertiary,27.274897,92.981256,30.22,3.394,6,2131.6
+SEG0087,Arunachal Pradesh,Pakke-Kessang Rd,tertiary,27.323165,93.098827,31.85,3.482,5,3204.3
+SEG0088,Arunachal Pradesh,Pakke-Kessang Rd,tertiary,27.376391,93.218372,36.2,8.177,6,4107.2
+SEG0089,Arunachal Pradesh,Pakke-Kessang Rd,tertiary,27.429255,93.335432,35.65,4.967,5,2953.5
+SEG0090,Arunachal Pradesh,BRO Siang Valley,unclassified,28.229483,94.850366,43.03,6.54,7,4159.5
+SEG0091,Arunachal Pradesh,BRO Siang Valley,unclassified,28.332971,94.946594,32.35,2.274,5,1102.6
+SEG0092,Arunachal Pradesh,BRO Siang Valley,unclassified,28.443091,95.051466,27.02,4.675,3,2118.4
+SEG0093,Arunachal Pradesh,BRO Siang Valley,unclassified,28.538924,95.148658,40.68,10.422,4,2363.5
+SEG0094,Arunachal Pradesh,BRO Lohit District,unclassified,27.978581,96.097122,22.99,5.014,4,4981.0
+SEG0095,Arunachal Pradesh,BRO Lohit District,unclassified,27.92674,96.297762,37.19,8.759,7,2428.9
+SEG0096,Arunachal Pradesh,BRO Lohit District,unclassified,27.875398,96.499656,25.23,6.776,3,1496.8
+SEG0097,Arunachal Pradesh,BRO Lohit District,unclassified,27.828591,96.706516,33.9,10.23,3,4959.4
+SEG0098,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.211485,91.834615,11.64,1.1,3,2621.9
+SEG0099,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.283009,91.985553,6.98,7.303,2,987.5
+SEG0100,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.334987,92.14755,13.78,4.898,2,1153.3
+SEG0101,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.399004,92.299695,17.03,5.369,1,3614.9
+SEG0102,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.469613,92.461814,11.07,4.546,3,4346.8
+SEG0103,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.536976,92.620186,21.74,4.286,2,4620.1
+SEG0104,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.596236,92.772871,10.49,4.241,3,1240.9
+SEG0105,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.663467,92.936337,16.88,1.831,2,2223.2
+SEG0106,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.731208,93.092361,23.4,3.862,2,3313.6
+SEG0107,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.792478,93.252048,18.47,5.253,1,4923.6
+SEG0108,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.862595,93.413992,19.75,7.275,2,4845.5
+SEG0109,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.920575,93.562711,5.51,5.993,1,2648.4
+SEG0110,Assam,NH-27 Guwahati-Dibrugarh,national_highway,26.9829,93.725942,24.34,7.884,1,3881.8
+SEG0111,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.044143,93.877876,20.1,4.173,2,4939.3
+SEG0112,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.116217,94.0339,12.05,6.453,2,3132.9
+SEG0113,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.177204,94.201165,21.1,0.777,1,2365.3
+SEG0114,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.246402,94.352863,17.86,5.849,2,4434.9
+SEG0115,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.303619,94.517855,4.08,2.259,2,3412.0
+SEG0116,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.371487,94.673128,14.32,5.58,2,2485.7
+SEG0117,Assam,NH-27 Guwahati-Dibrugarh,national_highway,27.436103,94.836451,8.23,6.896,0,2261.7
+SEG0118,Assam,NH-17 Guwahati-Shillong,national_highway,26.152697,91.756504,15.99,3.477,0,4523.5
+SEG0119,Assam,NH-17 Guwahati-Shillong,national_highway,26.063046,91.776693,10.52,5.882,1,4191.2
+SEG0120,Assam,NH-17 Guwahati-Shillong,national_highway,26.000711,91.791313,11.97,1.526,0,4989.8
+SEG0121,Assam,NH-17 Guwahati-Shillong,national_highway,25.912417,91.799952,11.63,7.365,2,2887.0
+SEG0122,Assam,NH-17 Guwahati-Shillong,national_highway,25.841803,91.829797,4.48,2.015,1,2703.8
+SEG0123,Assam,NH-17 Guwahati-Shillong,national_highway,25.76821,91.844225,12.25,7.694,0,3958.2
+SEG0124,Assam,NH-17 Guwahati-Shillong,national_highway,25.68889,91.854256,22.73,2.263,3,4618.1
+SEG0125,Assam,NH-17 Guwahati-Shillong,national_highway,25.615409,91.861616,16.0,5.401,1,2057.4
+SEG0126,Assam,NH-15 Guwahati-Silchar,national_highway,26.118483,91.797093,6.42,7.057,0,3158.3
+SEG0127,Assam,NH-15 Guwahati-Silchar,national_highway,26.012801,91.880582,12.64,4.072,1,4977.7
+SEG0128,Assam,NH-15 Guwahati-Silchar,national_highway,25.896665,91.967008,7.07,4.716,0,3542.3
+SEG0129,Assam,NH-15 Guwahati-Silchar,national_highway,25.784551,92.057506,12.53,0.769,0,4831.1
+SEG0130,Assam,NH-15 Guwahati-Silchar,national_highway,25.670443,92.14062,8.41,0.991,2,2967.6
+SEG0131,Assam,NH-15 Guwahati-Silchar,national_highway,25.565702,92.23027,5.46,3.384,0,1054.2
+SEG0132,Assam,NH-15 Guwahati-Silchar,national_highway,25.444846,92.315108,9.65,3.456,0,807.0
+SEG0133,Assam,NH-15 Guwahati-Silchar,national_highway,25.339057,92.40211,3.03,4.311,0,2855.9
+SEG0134,Assam,NH-15 Guwahati-Silchar,national_highway,25.217496,92.496493,20.17,6.809,3,2154.5
+SEG0135,Assam,NH-15 Guwahati-Silchar,national_highway,25.102127,92.575263,18.03,2.212,1,2189.1
+SEG0136,Assam,NH-15 Guwahati-Silchar,national_highway,25.001819,92.664189,13.14,5.837,0,999.0
+SEG0137,Assam,NH-15 Guwahati-Silchar,national_highway,24.885499,92.757363,3.2,1.912,0,931.4
+SEG0138,Assam,NH-37 Jorhat-Dibrugarh,national_highway,26.794949,94.251011,8.32,4.769,0,4367.6
+SEG0139,Assam,NH-37 Jorhat-Dibrugarh,national_highway,26.904682,94.363723,16.62,1.721,2,4046.3
+SEG0140,Assam,NH-37 Jorhat-Dibrugarh,national_highway,27.00357,94.460046,23.21,3.908,4,4935.5
+SEG0141,Assam,NH-37 Jorhat-Dibrugarh,national_highway,27.114544,94.556317,10.0,6.494,2,3323.1
+SEG0142,Assam,NH-37 Jorhat-Dibrugarh,national_highway,27.217856,94.662541,9.99,1.086,2,2255.2
+SEG0143,Assam,NH-37 Jorhat-Dibrugarh,national_highway,27.316049,94.757775,18.95,5.811,0,3902.0
+SEG0144,Assam,NH-37 Jorhat-Dibrugarh,national_highway,27.424008,94.861021,16.06,1.445,3,3711.0
+SEG0145,Assam,NH-27 Dibrugarh-Tinsukia,national_highway,27.473588,94.954242,24.82,0.53,1,869.6
+SEG0146,Assam,NH-27 Dibrugarh-Tinsukia,national_highway,27.48319,95.045577,5.79,7.23,0,3052.0
+SEG0147,Assam,NH-27 Dibrugarh-Tinsukia,national_highway,27.47567,95.129396,4.11,4.959,2,2038.0
+SEG0148,Assam,NH-27 Dibrugarh-Tinsukia,national_highway,27.485565,95.210853,3.4,4.968,0,4470.3
+SEG0149,Assam,NH-27 Dibrugarh-Tinsukia,national_highway,27.488156,95.30262,15.18,3.471,0,3646.0
+SEG0150,Assam,NH-54 Silchar-Imphal Link,national_highway,24.823483,92.831067,19.69,7.876,0,2961.2
+SEG0151,Assam,NH-54 Silchar-Imphal Link,national_highway,24.794192,92.877688,14.45,3.56,1,1195.1
+SEG0152,Assam,NH-54 Silchar-Imphal Link,national_highway,24.772912,92.931725,18.02,1.62,1,1549.5
+SEG0153,Assam,NH-54 Silchar-Imphal Link,national_highway,24.754084,92.982018,13.34,6.001,3,4489.1
+SEG0154,Assam,NH-54 Silchar-Imphal Link,national_highway,24.725124,93.03953,19.32,5.984,2,3193.7
+SEG0155,Assam,NH-54 Silchar-Imphal Link,national_highway,24.697156,93.091814,22.04,6.486,4,1219.4
+SEG0156,Assam,Kaziranga Ring Rd,primary,26.59371,93.41535,3.51,7.844,2,3821.1
+SEG0157,Assam,Kaziranga Ring Rd,primary,26.623627,93.484524,10.02,5.066,1,3240.2
+SEG0158,Assam,Kaziranga Ring Rd,primary,26.657171,93.563876,23.58,4.007,1,2384.3
+SEG0159,Assam,Kaziranga Ring Rd,primary,26.697114,93.636056,6.58,5.634,0,2225.8
+SEG0160,Assam,Kaziranga Ring Rd,primary,26.734666,93.708072,5.18,6.151,1,1968.1
+SEG0161,Assam,Tezpur-Itanagar Link,primary,26.670824,92.852965,14.48,4.013,3,1889.6
+SEG0162,Assam,Tezpur-Itanagar Link,primary,26.743615,92.990968,24.11,5.394,3,1264.9
+SEG0163,Assam,Tezpur-Itanagar Link,primary,26.817451,93.130783,19.83,7.075,1,4586.9
+SEG0164,Assam,Tezpur-Itanagar Link,primary,26.896291,93.263889,23.97,1.039,2,2078.8
+SEG0165,Assam,Tezpur-Itanagar Link,primary,26.965775,93.394993,21.61,5.126,1,3077.9
+SEG0166,Assam,Tezpur-Itanagar Link,primary,27.040866,93.541821,6.53,6.889,0,3887.5
+SEG0167,Assam,Barak Valley Rd,primary,24.798916,92.743857,11.91,6.2,2,4043.9
+SEG0168,Assam,Barak Valley Rd,primary,24.737353,92.647511,5.65,7.221,1,1911.1
+SEG0169,Assam,Barak Valley Rd,primary,24.660695,92.546993,12.1,3.874,0,1830.1
+SEG0170,Assam,Barak Valley Rd,primary,24.60295,92.45463,22.24,3.045,3,1843.3
+SEG0171,Assam,Barak Valley Rd,primary,24.525477,92.348728,23.68,7.16,3,4064.9
+SEG0172,Assam,Dhubri-Kokrajhar Rd,secondary,26.066835,90.023779,14.65,4.524,3,1353.4
+SEG0173,Assam,Dhubri-Kokrajhar Rd,secondary,26.162524,90.090543,13.6,7.649,1,1487.0
+SEG0174,Assam,Dhubri-Kokrajhar Rd,secondary,26.259858,90.156647,8.57,0.725,0,4650.8
+SEG0175,Assam,Dhubri-Kokrajhar Rd,secondary,26.356046,90.235713,13.23,3.503,0,3033.9
+SEG0176,Assam,Nagaon-Lumding Rd,secondary,26.292343,92.717278,21.0,6.062,2,1442.1
+SEG0177,Assam,Nagaon-Lumding Rd,secondary,26.17491,92.82235,4.1,3.068,0,4136.7
+SEG0178,Assam,Nagaon-Lumding Rd,secondary,26.063972,92.924992,20.46,2.09,1,2639.6
+SEG0179,Assam,Nagaon-Lumding Rd,secondary,25.936561,93.022858,24.85,2.607,4,1060.7
+SEG0180,Assam,Nagaon-Lumding Rd,secondary,25.822697,93.121138,6.35,5.242,0,4671.8
+SEG0181,Assam,Goalpara-Bongaigaon,secondary,26.204751,90.608334,13.14,5.45,1,3318.7
+SEG0182,Assam,Goalpara-Bongaigaon,secondary,26.288025,90.599353,10.54,1.829,0,4353.2
+SEG0183,Assam,Goalpara-Bongaigaon,secondary,26.366278,90.576883,22.63,6.122,3,4965.6
+SEG0184,Assam,Goalpara-Bongaigaon,secondary,26.44004,90.565569,9.65,7.607,1,3901.7
+SEG0185,Assam,Majuli Approach Rd,tertiary,26.957894,94.163078,18.84,4.317,1,4609.8
+SEG0186,Assam,Majuli Approach Rd,tertiary,26.978295,94.184763,10.53,3.561,1,1328.4
+SEG0187,Assam,Majuli Approach Rd,tertiary,26.993028,94.211014,17.42,5.472,1,883.0
+SEG0188,Assam,Dibru-Saikhowa Access,tertiary,27.520061,95.397436,20.12,6.955,4,3605.0
+SEG0189,Assam,Dibru-Saikhowa Access,tertiary,27.575209,95.473905,6.05,2.626,0,3633.9
+SEG0190,Assam,Dibru-Saikhowa Access,tertiary,27.626264,95.559973,14.93,5.76,3,3362.3
+SEG0191,Manipur,NH-2 Imphal-Jiribam,national_highway,24.815478,93.912648,20.26,14.654,4,2478.6
+SEG0192,Manipur,NH-2 Imphal-Jiribam,national_highway,24.803999,93.859941,22.8,13.189,4,2664.6
+SEG0193,Manipur,NH-2 Imphal-Jiribam,national_highway,24.799889,93.806043,20.31,8.396,3,2857.3
+SEG0194,Manipur,NH-2 Imphal-Jiribam,national_highway,24.787741,93.745617,17.81,13.734,4,4342.0
+SEG0195,Manipur,NH-2 Imphal-Jiribam,national_highway,24.77975,93.689033,34.47,11.558,6,2818.6
+SEG0196,Manipur,NH-2 Imphal-Jiribam,national_highway,24.763157,93.645221,30.63,4.695,3,3261.0
+SEG0197,Manipur,NH-2 Imphal-Jiribam,national_highway,24.758719,93.590483,36.11,12.978,4,1504.3
+SEG0198,Manipur,NH-2 Imphal-Jiribam,national_highway,24.749759,93.525712,35.52,12.668,3,4052.2
+SEG0199,Manipur,NH-2 Imphal-Jiribam,national_highway,24.736208,93.474416,41.96,3.293,4,1446.6
+SEG0200,Manipur,NH-2 Imphal-Jiribam,national_highway,24.736609,93.431904,39.85,14.722,5,1379.6
+SEG0201,Manipur,NH-2 Imphal-Jiribam,national_highway,24.72373,93.366248,38.32,10.12,3,1269.7
+SEG0202,Manipur,NH-2 Imphal-Jiribam,national_highway,24.706492,93.313946,23.55,8.507,1,3681.9
+SEG0203,Manipur,NH-2 Imphal-Jiribam,national_highway,24.704055,93.254042,41.98,7.989,6,1199.8
+SEG0204,Manipur,NH-2 Imphal-Jiribam,national_highway,24.695978,93.205895,20.19,7.188,1,1016.0
+SEG0205,Manipur,NH-2 Imphal-Jiribam,national_highway,24.686745,93.142944,35.2,12.566,4,4249.2
+SEG0206,Manipur,NH-37 Imphal-Moreh,national_highway,24.801048,93.957111,33.96,12.12,3,4550.7
+SEG0207,Manipur,NH-37 Imphal-Moreh,national_highway,24.747908,93.981566,13.08,2.726,1,3042.1
+SEG0208,Manipur,NH-37 Imphal-Moreh,national_highway,24.695212,94.010551,10.02,6.827,3,946.3
+SEG0209,Manipur,NH-37 Imphal-Moreh,national_highway,24.649753,94.043335,15.38,2.63,3,4415.4
+SEG0210,Manipur,NH-37 Imphal-Moreh,national_highway,24.598923,94.062698,36.21,1.845,4,3898.7
+SEG0211,Manipur,NH-37 Imphal-Moreh,national_highway,24.554413,94.091399,26.13,11.379,3,2751.7
+SEG0212,Manipur,NH-37 Imphal-Moreh,national_highway,24.496555,94.110744,16.67,11.397,4,1161.1
+SEG0213,Manipur,NH-37 Imphal-Moreh,national_highway,24.455963,94.150326,36.34,6.278,3,4959.6
+SEG0214,Manipur,NH-37 Imphal-Moreh,national_highway,24.410257,94.171504,24.36,6.197,2,4897.5
+SEG0215,Manipur,NH-37 Imphal-Moreh,national_highway,24.35103,94.195579,17.07,10.013,4,2014.2
+SEG0216,Manipur,NH-37 Imphal-Moreh,national_highway,24.306471,94.224809,27.63,12.514,3,911.6
+SEG0217,Manipur,NH-37 Imphal-Moreh,national_highway,24.262712,94.251653,25.56,4.273,4,2558.4
+SEG0218,Manipur,NH-102 Imphal-Ukhrul,national_highway,24.839036,93.959849,27.96,6.088,5,2992.1
+SEG0219,Manipur,NH-102 Imphal-Ukhrul,national_highway,24.872843,94.022169,31.65,1.458,3,804.5
+SEG0220,Manipur,NH-102 Imphal-Ukhrul,national_highway,24.911369,94.069985,30.68,2.993,5,2773.8
+SEG0221,Manipur,NH-102 Imphal-Ukhrul,national_highway,24.959655,94.122723,11.9,3.62,3,3260.2
+SEG0222,Manipur,NH-102 Imphal-Ukhrul,national_highway,24.989463,94.172544,16.85,1.938,2,2575.5
+SEG0223,Manipur,NH-102 Imphal-Ukhrul,national_highway,25.034806,94.22834,37.53,5.146,3,2315.2
+SEG0224,Manipur,NH-102 Imphal-Ukhrul,national_highway,25.068357,94.290377,18.47,9.352,2,4531.1
+SEG0225,Manipur,NH-102 Imphal-Ukhrul,national_highway,25.107771,94.323143,13.44,2.172,0,3402.2
+SEG0226,Manipur,NH-150 Imphal-Senapati,national_highway,24.852719,93.9478,34.14,12.387,5,4986.0
+SEG0227,Manipur,NH-150 Imphal-Senapati,national_highway,24.928896,93.949596,20.37,14.255,3,3222.8
+SEG0228,Manipur,NH-150 Imphal-Senapati,national_highway,25.009765,93.950302,41.32,7.73,6,4877.7
+SEG0229,Manipur,NH-150 Imphal-Senapati,national_highway,25.082846,93.958808,28.71,2.357,3,2148.6
+SEG0230,Manipur,NH-150 Imphal-Senapati,national_highway,25.159973,93.968708,37.72,9.045,5,2516.4
+SEG0231,Manipur,NH-150 Imphal-Senapati,national_highway,25.236679,93.967772,39.66,14.025,4,2444.3
+SEG0232,Manipur,Imphal-Churachandpur,primary,24.783137,93.927619,28.17,7.196,3,3128.5
+SEG0233,Manipur,Imphal-Churachandpur,primary,24.725611,93.894348,22.11,1.872,3,1497.5
+SEG0234,Manipur,Imphal-Churachandpur,primary,24.670872,93.85914,16.87,8.659,4,1881.2
+SEG0235,Manipur,Imphal-Churachandpur,primary,24.602281,93.828898,29.12,10.2,5,1020.8
+SEG0236,Manipur,Imphal-Churachandpur,primary,24.550172,93.79225,39.56,8.895,6,961.9
+SEG0237,Manipur,Imphal-Churachandpur,primary,24.489605,93.762705,10.85,11.28,0,4379.0
+SEG0238,Manipur,Imphal-Churachandpur,primary,24.413819,93.731933,10.18,11.906,3,4490.8
+SEG0239,Manipur,Imphal-Churachandpur,primary,24.368639,93.699547,18.65,2.829,2,4054.6
+SEG0240,Manipur,Imphal-Bishnupur,primary,24.791483,93.923031,40.89,14.472,7,1588.0
+SEG0241,Manipur,Imphal-Bishnupur,primary,24.756139,93.886214,21.98,1.966,4,4206.0
+SEG0242,Manipur,Imphal-Bishnupur,primary,24.723015,93.848996,41.43,9.305,7,2353.9
+SEG0243,Manipur,Imphal-Bishnupur,primary,24.67861,93.80928,35.43,12.647,4,1994.5
+SEG0244,Manipur,Imphal-Bishnupur,primary,24.642262,93.785345,10.77,8.047,2,3698.5
+SEG0245,Manipur,Thoubal Rd,primary,24.798208,93.944007,22.06,9.471,2,968.4
+SEG0246,Manipur,Thoubal Rd,primary,24.76762,93.959922,16.86,2.525,3,2245.4
+SEG0247,Manipur,Thoubal Rd,primary,24.721951,93.974756,22.96,12.23,1,4892.6
+SEG0248,Manipur,Thoubal Rd,primary,24.690624,93.986382,37.89,9.696,4,2610.5
+SEG0249,Manipur,Kakching Rd,secondary,24.649256,93.990393,41.79,14.401,5,969.7
+SEG0250,Manipur,Kakching Rd,secondary,24.599571,94.001164,38.9,1.154,4,4317.4
+SEG0251,Manipur,Kakching Rd,secondary,24.558911,94.010152,14.98,8.256,3,4646.1
+SEG0252,Manipur,Kakching Rd,secondary,24.510859,94.006484,24.24,1.415,2,2104.7
+SEG0253,Manipur,Chandel Rd,secondary,24.301481,93.715508,40.86,1.867,7,4442.7
+SEG0254,Manipur,Chandel Rd,secondary,24.252838,93.775941,41.23,12.711,5,1333.1
+SEG0255,Manipur,Chandel Rd,secondary,24.196458,93.852224,27.39,13.534,5,4881.6
+SEG0256,Manipur,Chandel Rd,secondary,24.145904,93.906532,24.6,6.102,3,2444.3
+SEG0257,Manipur,Chandel Rd,secondary,24.091995,93.981654,34.96,6.968,4,4708.9
+SEG0258,Manipur,Tamenglong Rd,secondary,24.839243,93.893663,15.04,3.484,1,1718.6
+SEG0259,Manipur,Tamenglong Rd,secondary,24.85927,93.809802,41.27,3.927,7,1006.3
+SEG0260,Manipur,Tamenglong Rd,secondary,24.88585,93.7172,16.24,8.744,2,3056.3
+SEG0261,Manipur,Tamenglong Rd,secondary,24.913298,93.632886,35.62,9.458,6,4429.4
+SEG0262,Manipur,Tamenglong Rd,secondary,24.945044,93.547972,12.9,3.776,1,4771.9
+SEG0263,Manipur,Tamenglong Rd,secondary,24.966779,93.453298,27.3,3.151,3,2147.1
+SEG0264,Manipur,Noney Rd,secondary,24.815725,93.886354,23.91,3.815,4,1509.3
+SEG0265,Manipur,Noney Rd,secondary,24.803916,93.786284,13.43,7.716,2,2982.1
+SEG0266,Manipur,Noney Rd,secondary,24.794666,93.68824,41.83,7.551,6,2571.4
+SEG0267,Manipur,Noney Rd,secondary,24.786442,93.584437,17.29,9.745,2,1013.5
+SEG0268,Manipur,Kangpokpi Rd,secondary,25.299303,93.957732,38.7,7.396,5,4253.3
+SEG0269,Manipur,Kangpokpi Rd,secondary,25.329579,93.913419,23.7,9.75,1,4396.2
+SEG0270,Manipur,Kangpokpi Rd,secondary,25.370363,93.885475,31.2,10.242,5,2357.8
+SEG0271,Manipur,Pherzawl Rd,tertiary,24.313089,93.660204,26.18,11.18,5,2730.8
+SEG0272,Manipur,Pherzawl Rd,tertiary,24.268041,93.60168,14.2,3.379,1,3938.5
+SEG0273,Manipur,Pherzawl Rd,tertiary,24.235487,93.560599,13.54,14.363,2,1448.6
+SEG0274,Manipur,Pherzawl Rd,tertiary,24.205573,93.51555,26.94,13.301,4,3774.3
+SEG0275,Manipur,Khengjoi Rd,tertiary,25.003429,93.390179,25.31,2.638,5,1948.4
+SEG0276,Manipur,Khengjoi Rd,tertiary,25.057535,93.339909,27.61,10.723,2,2820.7
+SEG0277,Manipur,Khengjoi Rd,tertiary,25.114625,93.288733,36.08,6.999,3,4246.3
+SEG0278,Manipur,Kamjong Rd,tertiary,25.159168,94.401967,15.64,7.279,1,1811.9
+SEG0279,Manipur,Kamjong Rd,tertiary,25.224827,94.47799,18.73,2.398,2,2643.1
+SEG0280,Manipur,Kamjong Rd,tertiary,25.291916,94.535343,17.55,11.566,1,2891.3
+SEG0281,Manipur,BRO Hill Rd 1,unclassified,24.473739,93.467262,41.96,9.396,7,4537.1
+SEG0282,Manipur,BRO Hill Rd 1,unclassified,24.424246,93.423302,24.75,1.677,4,2804.2
+SEG0283,Manipur,BRO Hill Rd 1,unclassified,24.377469,93.377221,28.18,8.506,2,4313.8
+SEG0284,Manipur,BRO Hill Rd 1,unclassified,24.333035,93.321162,35.38,12.794,6,4466.2
+SEG0285,Manipur,BRO Hill Rd 2,unclassified,25.03229,94.136693,22.85,4.387,4,3346.5
+SEG0286,Manipur,BRO Hill Rd 2,unclassified,25.099053,94.192877,27.82,4.796,2,1619.8
+SEG0287,Manipur,BRO Hill Rd 2,unclassified,25.163769,94.26434,22.89,12.595,1,3661.6
+SEG0288,Manipur,Tengnoupal Rd,unclassified,24.213752,94.303086,35.98,4.338,6,1388.2
+SEG0289,Manipur,Tengnoupal Rd,unclassified,24.166734,94.355413,17.53,4.505,4,4851.0
+SEG0290,Manipur,Tengnoupal Rd,unclassified,24.123982,94.422919,23.84,4.169,4,4041.8
+SEG0291,Meghalaya,NH-6 Shillong-Guwahati,national_highway,25.608073,91.866061,21.39,0.541,5,3198.9
+SEG0292,Meghalaya,NH-6 Shillong-Guwahati,national_highway,25.675518,91.857008,21.24,5.43,4,1174.0
+SEG0293,Meghalaya,NH-6 Shillong-Guwahati,national_highway,25.760148,91.832891,26.15,2.294,5,1621.1
+SEG0294,Meghalaya,NH-6 Shillong-Guwahati,national_highway,25.835053,91.817579,40.85,6.601,6,4928.5
+SEG0295,Meghalaya,NH-6 Shillong-Guwahati,national_highway,25.914935,91.808158,42.7,2.836,7,3865.2
+SEG0296,Meghalaya,NH-6 Shillong-Guwahati,national_highway,25.989155,91.795156,29.05,2.405,3,2748.1
+SEG0297,Meghalaya,NH-6 Shillong-Guwahati,national_highway,26.067657,91.775156,42.23,8.126,5,1917.3
+SEG0298,Meghalaya,NH-6 Shillong-Guwahati,national_highway,26.140866,91.757955,19.05,9.466,3,1743.7
+SEG0299,Meghalaya,NH-44 Shillong-Cherrapunji,national_highway,25.537892,91.868796,16.05,2.038,2,3484.9
+SEG0300,Meghalaya,NH-44 Shillong-Cherrapunji,national_highway,25.498047,91.847202,42.52,8.584,5,1756.2
+SEG0301,Meghalaya,NH-44 Shillong-Cherrapunji,national_highway,25.4465,91.821811,24.17,6.38,5,3991.9
+SEG0302,Meghalaya,NH-44 Shillong-Cherrapunji,national_highway,25.394932,91.793632,43.16,7.42,8,4482.0
+SEG0303,Meghalaya,NH-44 Shillong-Cherrapunji,national_highway,25.344185,91.761616,39.62,7.619,5,2009.0
+SEG0304,Meghalaya,NH-44 Shillong-Cherrapunji,national_highway,25.297594,91.736532,30.09,5.3,5,2459.4
+SEG0305,Meghalaya,NH-40 Shillong-Dawki,national_highway,25.53639,91.890474,22.4,7.497,4,3647.5
+SEG0306,Meghalaya,NH-40 Shillong-Dawki,national_highway,25.476554,91.911231,38.86,9.626,4,4655.0
+SEG0307,Meghalaya,NH-40 Shillong-Dawki,national_highway,25.425381,91.938099,34.15,5.002,5,4943.8
+SEG0308,Meghalaya,NH-40 Shillong-Dawki,national_highway,25.351382,91.968396,41.27,3.198,6,2407.7
+SEG0309,Meghalaya,NH-40 Shillong-Dawki,national_highway,25.286108,91.99304,24.04,7.817,5,2214.8
+SEG0310,Meghalaya,NH-40 Shillong-Dawki,national_highway,25.234787,92.018958,39.89,0.732,5,3790.1
+SEG0311,Meghalaya,NH-106 Tura-Williamnagar,national_highway,25.532849,90.24908,16.66,3.809,1,4433.4
+SEG0312,Meghalaya,NH-106 Tura-Williamnagar,national_highway,25.565992,90.311934,43.35,0.983,6,1882.0
+SEG0313,Meghalaya,NH-106 Tura-Williamnagar,national_highway,25.589472,90.378706,21.48,5.547,4,4072.9
+SEG0314,Meghalaya,NH-106 Tura-Williamnagar,national_highway,25.634498,90.442216,15.82,9.606,2,3469.4
+SEG0315,Meghalaya,NH-106 Tura-Williamnagar,national_highway,25.645699,90.518447,29.28,4.771,5,3489.8
+SEG0316,Meghalaya,NH-106 Tura-Williamnagar,national_highway,25.6891,90.585178,39.35,3.821,7,1392.3
+SEG0317,Meghalaya,Garo Hills Rd NH-51,national_highway,25.547616,90.182173,42.66,3.656,7,1510.4
+SEG0318,Meghalaya,Garo Hills Rd NH-51,national_highway,25.609646,90.129189,18.6,1.177,1,1111.0
+SEG0319,Meghalaya,Garo Hills Rd NH-51,national_highway,25.678724,90.064571,32.41,7.857,6,3449.8
+SEG0320,Meghalaya,Garo Hills Rd NH-51,national_highway,25.741303,90.011543,30.66,7.271,4,2253.5
+SEG0321,Meghalaya,Garo Hills Rd NH-51,national_highway,25.799527,89.954242,38.9,2.977,5,1444.8
+SEG0322,Meghalaya,Garo Hills Rd NH-51,national_highway,25.874243,89.90036,24.91,7.017,4,1126.5
+SEG0323,Meghalaya,Shillong-Nongstoin Rd,primary,25.566255,91.817033,21.5,7.045,5,4621.1
+SEG0324,Meghalaya,Shillong-Nongstoin Rd,primary,25.552375,91.694737,23.7,5.766,3,3363.4
+SEG0325,Meghalaya,Shillong-Nongstoin Rd,primary,25.540877,91.575282,35.81,6.91,6,3666.9
+SEG0326,Meghalaya,Shillong-Nongstoin Rd,primary,25.530771,91.448792,27.27,1.324,5,2652.0
+SEG0327,Meghalaya,Shillong-Nongstoin Rd,primary,25.536238,91.329194,37.81,4.989,4,2896.6
+SEG0328,Meghalaya,Jowai-Dawki Rd,primary,25.414478,92.179938,29.75,5.522,5,3897.6
+SEG0329,Meghalaya,Jowai-Dawki Rd,primary,25.353237,92.136632,29.45,9.256,5,2872.7
+SEG0330,Meghalaya,Jowai-Dawki Rd,primary,25.294852,92.098187,28.52,2.218,4,1199.8
+SEG0331,Meghalaya,Jowai-Dawki Rd,primary,25.229968,92.052345,38.08,7.468,4,935.0
+SEG0332,Meghalaya,Cherrapunji-Nongriat,primary,25.262024,91.724408,43.23,2.09,6,2170.2
+SEG0333,Meghalaya,Cherrapunji-Nongriat,primary,25.248782,91.713361,37.79,2.691,6,4604.3
+SEG0334,Meghalaya,Cherrapunji-Nongriat,primary,25.236664,91.705159,40.49,9.989,7,2004.9
+SEG0335,Meghalaya,Baghmara-Siju Rd,secondary,25.179972,90.643181,32.47,9.938,3,4959.2
+SEG0336,Meghalaya,Baghmara-Siju Rd,secondary,25.141936,90.646457,40.8,9.363,5,3019.9
+SEG0337,Meghalaya,Baghmara-Siju Rd,secondary,25.096481,90.655195,28.19,9.863,3,4937.2
+SEG0338,Meghalaya,Baghmara-Siju Rd,secondary,25.059094,90.660489,23.07,3.548,4,3155.3
+SEG0339,Meghalaya,Mawsynram Access,secondary,25.298685,91.582545,27.25,7.617,4,2200.9
+SEG0340,Meghalaya,Mawsynram Access,secondary,25.292651,91.585044,20.66,8.58,4,1757.0
+SEG0341,Meghalaya,Mawsynram Access,secondary,25.291797,91.58386,15.63,3.505,2,1543.4
+SEG0342,Meghalaya,Nongpoh-Umiam Rd,secondary,25.874675,91.872553,16.95,1.022,4,891.2
+SEG0343,Meghalaya,Nongpoh-Umiam Rd,secondary,25.825425,91.882824,33.2,4.725,5,2660.0
+SEG0344,Meghalaya,Nongpoh-Umiam Rd,secondary,25.7744,91.892846,41.79,0.605,6,4596.4
+SEG0345,Meghalaya,Nongpoh-Umiam Rd,secondary,25.714767,91.897192,21.08,6.77,2,3844.2
+SEG0346,Meghalaya,Mairang-Nongstoin,tertiary,25.540223,91.424075,29.82,3.353,6,2310.6
+SEG0347,Meghalaya,Mairang-Nongstoin,tertiary,25.528496,91.367899,25.57,7.258,3,877.4
+SEG0348,Meghalaya,Mairang-Nongstoin,tertiary,25.516968,91.302734,33.31,7.878,5,3789.2
+SEG0349,Meghalaya,Resubelpara Rd,tertiary,25.829098,90.641867,33.1,2.833,6,978.7
+SEG0350,Meghalaya,Resubelpara Rd,tertiary,25.772674,90.628796,27.42,2.178,2,4687.9
+SEG0351,Meghalaya,Resubelpara Rd,tertiary,25.729285,90.627412,15.54,9.287,4,4798.1
+SEG0352,Mizoram,NH-54 Aizawl-Imphal,national_highway,23.777629,92.740589,44.2,10.965,5,3111.4
+SEG0353,Mizoram,NH-54 Aizawl-Imphal,national_highway,23.874707,92.768331,34.57,7.762,6,2552.5
+SEG0354,Mizoram,NH-54 Aizawl-Imphal,national_highway,23.971601,92.818731,37.97,1.825,6,4365.7
+SEG0355,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.067016,92.85978,26.43,11.664,4,3879.1
+SEG0356,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.160965,92.90293,23.93,6.103,4,3883.4
+SEG0357,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.2471,92.946417,28.21,10.369,6,1815.1
+SEG0358,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.344294,92.974902,24.96,8.622,4,1432.5
+SEG0359,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.435289,93.016991,27.17,1.784,5,2796.3
+SEG0360,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.537726,93.060981,27.05,10.303,4,4339.5
+SEG0361,Mizoram,NH-54 Aizawl-Imphal,national_highway,24.636132,93.095189,35.57,2.275,6,4517.4
+SEG0362,Mizoram,NH-54 Aizawl-Kolasib,national_highway,23.762438,92.715345,22.12,8.563,2,2003.7
+SEG0363,Mizoram,NH-54 Aizawl-Kolasib,national_highway,23.834646,92.707564,29.19,6.741,3,1974.5
+SEG0364,Mizoram,NH-54 Aizawl-Kolasib,national_highway,23.905419,92.708929,28.09,8.165,6,857.9
+SEG0365,Mizoram,NH-54 Aizawl-Kolasib,national_highway,23.9813,92.696955,28.64,9.913,3,2386.9
+SEG0366,Mizoram,NH-54 Aizawl-Kolasib,national_highway,24.043992,92.684713,18.59,6.666,4,2569.4
+SEG0367,Mizoram,NH-54 Aizawl-Kolasib,national_highway,24.109559,92.682277,43.44,1.245,6,3325.8
+SEG0368,Mizoram,NH-54 Aizawl-Kolasib,national_highway,24.185351,92.675139,39.26,7.956,5,4920.2
+SEG0369,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.708192,92.760908,32.77,2.614,6,2212.4
+SEG0370,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.674491,92.850338,30.22,10.269,5,2815.2
+SEG0371,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.637109,92.940492,21.53,1.569,3,4770.7
+SEG0372,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.590637,93.024888,20.45,5.66,1,2910.1
+SEG0373,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.54684,93.112663,31.62,10.455,6,2682.7
+SEG0374,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.512261,93.188878,28.53,6.838,6,1583.2
+SEG0375,Mizoram,NH-54A Aizawl-Champhai,national_highway,23.472638,93.284841,28.58,3.202,6,3656.1
+SEG0376,Mizoram,NH-302 Aizawl-Lunglei,national_highway,23.673272,92.716739,25.11,4.907,3,3810.4
+SEG0377,Mizoram,NH-302 Aizawl-Lunglei,national_highway,23.544803,92.716626,41.02,7.291,5,1698.1
+SEG0378,Mizoram,NH-302 Aizawl-Lunglei,national_highway,23.426838,92.71908,19.05,6.441,3,1801.6
+SEG0379,Mizoram,NH-302 Aizawl-Lunglei,national_highway,23.306466,92.727332,43.3,7.672,5,3783.5
+SEG0380,Mizoram,NH-302 Aizawl-Lunglei,national_highway,23.1792,92.720641,27.22,2.791,2,3039.6
+SEG0381,Mizoram,NH-302 Aizawl-Lunglei,national_highway,23.061451,92.731715,18.38,11.204,3,1911.2
+SEG0382,Mizoram,NH-302 Aizawl-Lunglei,national_highway,22.939346,92.723658,24.49,4.013,5,1973.3
+SEG0383,Mizoram,NH-302 Lunglei-Lawngtlai,national_highway,22.845689,92.744029,28.4,4.729,3,2177.3
+SEG0384,Mizoram,NH-302 Lunglei-Lawngtlai,national_highway,22.794129,92.774048,23.46,9.323,4,4699.8
+SEG0385,Mizoram,NH-302 Lunglei-Lawngtlai,national_highway,22.733786,92.798961,26.49,9.513,5,4012.0
+SEG0386,Mizoram,NH-302 Lunglei-Lawngtlai,national_highway,22.678351,92.829694,29.73,9.436,5,2095.5
+SEG0387,Mizoram,NH-302 Lunglei-Lawngtlai,national_highway,22.614282,92.850267,44.85,9.471,8,1191.7
+SEG0388,Mizoram,NH-302 Lunglei-Lawngtlai,national_highway,22.556311,92.888921,38.8,9.791,7,4398.8
+SEG0389,Mizoram,Kolasib-Hnahthial Rd,primary,24.151807,92.675846,29.18,1.467,5,2682.5
+SEG0390,Mizoram,Kolasib-Hnahthial Rd,primary,24.025794,92.686958,29.48,10.674,3,4553.7
+SEG0391,Mizoram,Kolasib-Hnahthial Rd,primary,23.89809,92.697221,31.57,5.595,4,1881.0
+SEG0392,Mizoram,Kolasib-Hnahthial Rd,primary,23.764888,92.705773,27.5,7.224,4,4260.4
+SEG0393,Mizoram,Kolasib-Hnahthial Rd,primary,23.635392,92.724351,39.19,11.644,5,4320.2
+SEG0394,Mizoram,Champhai-Zokhawthar,primary,23.451927,93.337662,22.59,10.001,3,1906.5
+SEG0395,Mizoram,Champhai-Zokhawthar,primary,23.458671,93.360816,33.22,8.931,5,1047.2
+SEG0396,Mizoram,Champhai-Zokhawthar,primary,23.462896,93.36708,19.82,6.635,2,3584.3
+SEG0397,Mizoram,Serchhip-Thenzawl,secondary,23.261613,92.834448,42.16,3.046,6,2157.7
+SEG0398,Mizoram,Serchhip-Thenzawl,secondary,23.191762,92.81896,29.95,2.719,5,4999.0
+SEG0399,Mizoram,Serchhip-Thenzawl,secondary,23.127317,92.798955,31.02,11.146,3,1168.6
+SEG0400,Mizoram,Serchhip-Thenzawl,secondary,23.066251,92.764413,43.58,4.462,6,2700.3
+SEG0401,Mizoram,Mamit-Zawlnuam Rd,secondary,23.881301,92.460134,42.26,3.786,6,3762.1
+SEG0402,Mizoram,Mamit-Zawlnuam Rd,secondary,23.809531,92.457412,35.65,4.729,6,1194.9
+SEG0403,Mizoram,Mamit-Zawlnuam Rd,secondary,23.72849,92.438038,41.66,2.501,6,2144.7
+SEG0404,Mizoram,Mamit-Zawlnuam Rd,secondary,23.665544,92.437196,26.02,1.667,3,1869.1
+SEG0405,Mizoram,Lawngtlai-Sangau,tertiary,22.484025,92.904241,25.07,7.896,3,2430.2
+SEG0406,Mizoram,Lawngtlai-Sangau,tertiary,22.386746,92.932842,38.84,5.168,5,4858.1
+SEG0407,Mizoram,Lawngtlai-Sangau,tertiary,22.295489,92.956509,39.43,1.646,6,2602.2
+SEG0408,Mizoram,Phullen-Haulawng,tertiary,22.836495,92.715585,30.38,2.021,4,1331.6
+SEG0409,Mizoram,Phullen-Haulawng,tertiary,22.740045,92.674608,37.53,10.563,6,3441.6
+SEG0410,Mizoram,Phullen-Haulawng,tertiary,22.643593,92.638677,40.75,10.56,4,3136.0
+SEG0411,Mizoram,BRO Hmar Hills,unclassified,23.543984,92.708743,35.51,5.622,4,1590.0
+SEG0412,Mizoram,BRO Hmar Hills,unclassified,23.479852,92.666331,23.52,2.029,3,4009.7
+SEG0413,Mizoram,BRO Hmar Hills,unclassified,23.424723,92.61878,44.25,8.79,8,3364.2
+SEG0414,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.690199,94.094112,16.07,9.013,3,820.4
+SEG0415,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.723948,94.032282,35.43,6.188,3,2841.4
+SEG0416,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.756278,93.975984,29.09,5.743,3,4572.1
+SEG0417,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.775491,93.921861,25.39,2.988,4,2278.9
+SEG0418,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.821015,93.87172,35.63,6.459,5,936.9
+SEG0419,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.846352,93.816097,17.17,3.89,4,4941.3
+SEG0420,Nagaland,NH-2 Kohima-Dimapur,national_highway,25.878459,93.765402,30.49,6.478,5,2382.3
+SEG0421,Nagaland,NH-29A Kohima-Imphal,national_highway,25.637277,94.116108,26.57,8.587,4,4446.6
+SEG0422,Nagaland,NH-29A Kohima-Imphal,national_highway,25.567681,94.108884,16.87,2.874,3,3857.1
+SEG0423,Nagaland,NH-29A Kohima-Imphal,national_highway,25.482579,94.09966,16.79,10.488,1,4309.2
+SEG0424,Nagaland,NH-29A Kohima-Imphal,national_highway,25.40797,94.083776,16.52,10.39,3,3102.7
+SEG0425,Nagaland,NH-29A Kohima-Imphal,national_highway,25.337192,94.073027,28.2,6.507,2,4954.2
+SEG0426,Nagaland,NH-29A Kohima-Imphal,national_highway,25.262474,94.068306,16.4,6.254,1,3593.9
+SEG0427,Nagaland,NH-29A Kohima-Imphal,national_highway,25.188608,94.053847,26.3,5.032,5,2990.1
+SEG0428,Nagaland,NH-702 Kohima-Zunheboto,national_highway,25.700845,94.158364,23.25,3.759,4,1429.8
+SEG0429,Nagaland,NH-702 Kohima-Zunheboto,national_highway,25.748622,94.22588,18.61,8.632,2,4360.2
+SEG0430,Nagaland,NH-702 Kohima-Zunheboto,national_highway,25.809623,94.28771,15.23,1.52,1,4946.2
+SEG0431,Nagaland,NH-702 Kohima-Zunheboto,national_highway,25.877505,94.357531,16.94,7.513,4,3975.5
+SEG0432,Nagaland,NH-702 Kohima-Zunheboto,national_highway,25.924281,94.419246,31.07,11.904,5,1595.9
+SEG0433,Nagaland,NH-702 Kohima-Zunheboto,national_highway,25.996841,94.489664,31.1,9.715,3,3962.9
+SEG0434,Nagaland,NH-702B Mokokchung Rd,national_highway,26.36079,94.514259,21.68,7.115,3,2185.1
+SEG0435,Nagaland,NH-702B Mokokchung Rd,national_highway,26.426285,94.52328,41.31,5.586,5,3057.2
+SEG0436,Nagaland,NH-702B Mokokchung Rd,national_highway,26.490128,94.52092,21.39,6.804,1,4712.1
+SEG0437,Nagaland,NH-702B Mokokchung Rd,national_highway,26.535597,94.512046,35.66,2.066,3,4581.2
+SEG0438,Nagaland,NH-702B Mokokchung Rd,national_highway,26.590243,94.513018,33.68,7.948,4,4278.4
+SEG0439,Nagaland,Dimapur-Medziphema,primary,25.886911,93.745119,23.71,8.67,4,4819.3
+SEG0440,Nagaland,Dimapur-Medziphema,primary,25.844815,93.796424,26.8,9.317,3,1473.6
+SEG0441,Nagaland,Dimapur-Medziphema,primary,25.81211,93.837485,28.0,7.287,5,1006.1
+SEG0442,Nagaland,Dimapur-Medziphema,primary,25.785517,93.876173,30.8,8.231,4,3494.5
+SEG0443,Nagaland,Wokha-Mokokchung Rd,primary,26.12021,94.120536,17.73,4.005,3,3015.1
+SEG0444,Nagaland,Wokha-Mokokchung Rd,primary,26.159511,94.209857,17.44,7.515,1,3882.9
+SEG0445,Nagaland,Wokha-Mokokchung Rd,primary,26.21944,94.305427,30.97,4.725,2,2674.3
+SEG0446,Nagaland,Wokha-Mokokchung Rd,primary,26.251692,94.380555,29.03,5.051,3,1400.6
+SEG0447,Nagaland,Wokha-Mokokchung Rd,primary,26.311535,94.484428,40.49,6.557,4,1786.3
+SEG0448,Nagaland,Phek-Pfutsero Rd,primary,25.623911,94.48161,37.02,5.217,6,4171.4
+SEG0449,Nagaland,Phek-Pfutsero Rd,primary,25.586068,94.493606,16.38,11.156,4,4511.4
+SEG0450,Nagaland,Phek-Pfutsero Rd,primary,25.552285,94.503614,20.72,10.014,3,942.3
+SEG0451,Nagaland,Phek-Pfutsero Rd,primary,25.508168,94.525576,37.39,4.049,4,1024.0
+SEG0452,Nagaland,Tuensang-Mon Rd,secondary,26.650915,94.80419,29.38,8.065,5,2563.0
+SEG0453,Nagaland,Tuensang-Mon Rd,secondary,26.65888,94.794834,21.28,10.203,2,1412.5
+SEG0454,Nagaland,Tuensang-Mon Rd,secondary,26.678994,94.794689,20.81,2.795,2,2346.0
+SEG0455,Nagaland,Tuensang-Mon Rd,secondary,26.701315,94.790656,19.08,11.048,3,4590.5
+SEG0456,Nagaland,Kiphire-Longkhim Rd,secondary,25.93012,94.866396,31.74,8.031,4,869.2
+SEG0457,Nagaland,Kiphire-Longkhim Rd,secondary,25.988516,94.835225,36.1,5.15,5,852.1
+SEG0458,Nagaland,Kiphire-Longkhim Rd,secondary,26.028293,94.811678,26.8,4.737,5,3015.7
+SEG0459,Nagaland,Kiphire-Longkhim Rd,secondary,26.076241,94.787011,19.67,4.516,1,2034.6
+SEG0460,Nagaland,Longleng-Langpangkong,secondary,26.540613,94.783843,32.38,11.45,4,3709.6
+SEG0461,Nagaland,Longleng-Langpangkong,secondary,26.590962,94.845996,27.52,1.341,3,3394.2
+SEG0462,Nagaland,Longleng-Langpangkong,secondary,26.644928,94.921087,28.95,7.643,3,973.3
+SEG0463,Nagaland,Longleng-Langpangkong,secondary,26.700577,94.985865,41.88,1.174,5,3141.9
+SEG0464,Nagaland,Pungro-Kiphire,tertiary,26.135044,94.969077,29.72,7.819,3,4407.7
+SEG0465,Nagaland,Pungro-Kiphire,tertiary,26.044145,94.922798,17.07,3.141,3,816.4
+SEG0466,Nagaland,Pungro-Kiphire,tertiary,25.953514,94.900996,19.48,5.962,1,4024.2
+SEG0467,Nagaland,BRO Patkai Hills,unclassified,26.550582,95.065967,18.36,4.249,2,4635.9
+SEG0468,Nagaland,BRO Patkai Hills,unclassified,26.643512,95.202458,40.45,11.457,5,3603.1
+SEG0469,Nagaland,BRO Patkai Hills,unclassified,26.75315,95.333151,15.85,2.586,1,3379.6
+SEG0470,Tripura,NH-8 Agartala-Dharmanagar,national_highway,23.86006,91.326499,13.78,7.15,3,2869.9
+SEG0471,Tripura,NH-8 Agartala-Dharmanagar,national_highway,23.922556,91.41198,17.36,1.981,3,4415.7
+SEG0472,Tripura,NH-8 Agartala-Dharmanagar,national_highway,23.98096,91.503936,26.94,7.697,2,4713.7
+SEG0473,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.025234,91.592305,19.01,3.07,0,2011.9
+SEG0474,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.092092,91.68306,17.41,7.158,2,2988.1
+SEG0475,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.133737,91.765645,10.23,6.672,2,1633.2
+SEG0476,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.194872,91.858152,19.37,6.972,1,4502.8
+SEG0477,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.250641,91.948738,21.61,6.848,2,4971.0
+SEG0478,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.300879,92.039352,23.61,3.897,4,2456.6
+SEG0479,Tripura,NH-8 Agartala-Dharmanagar,national_highway,24.345345,92.129653,10.64,6.805,3,2465.5
+SEG0480,Tripura,NH-44 Agartala-Sabroom,national_highway,23.788319,91.304716,17.29,6.544,1,1094.5
+SEG0481,Tripura,NH-44 Agartala-Sabroom,national_highway,23.677176,91.333328,20.36,3.855,4,2474.3
+SEG0482,Tripura,NH-44 Agartala-Sabroom,national_highway,23.570073,91.377284,17.52,4.041,3,3931.7
+SEG0483,Tripura,NH-44 Agartala-Sabroom,national_highway,23.469762,91.417268,26.34,1.651,4,3247.3
+SEG0484,Tripura,NH-44 Agartala-Sabroom,national_highway,23.366879,91.465412,10.97,5.536,0,2946.8
+SEG0485,Tripura,NH-44 Agartala-Sabroom,national_highway,23.258555,91.499777,26.89,7.902,2,4474.4
+SEG0486,Tripura,NH-44 Agartala-Sabroom,national_highway,23.160251,91.54483,5.8,3.45,2,3692.8
+SEG0487,Tripura,NH-44 Agartala-Sabroom,national_highway,23.054855,91.579648,25.31,5.822,4,2767.3
+SEG0488,Tripura,NH-44A Agartala-Kamalpur,national_highway,23.867708,91.331561,9.26,5.321,2,1838.5
+SEG0489,Tripura,NH-44A Agartala-Kamalpur,national_highway,23.917409,91.420146,10.66,4.274,3,4961.7
+SEG0490,Tripura,NH-44A Agartala-Kamalpur,national_highway,23.982739,91.501198,17.81,6.556,1,2523.4
+SEG0491,Tripura,NH-44A Agartala-Kamalpur,national_highway,24.036944,91.589285,24.62,1.525,2,2452.5
+SEG0492,Tripura,NH-44A Agartala-Kamalpur,national_highway,24.093914,91.68492,12.47,4.663,0,1942.6
+SEG0493,Tripura,NH-44A Agartala-Kamalpur,national_highway,24.153607,91.774042,18.24,5.8,1,3216.2
+SEG0494,Tripura,NH-208 Udaipur-Amarpur,national_highway,23.530406,91.499316,9.37,6.236,2,4087.6
+SEG0495,Tripura,NH-208 Udaipur-Amarpur,national_highway,23.526558,91.533065,17.43,0.747,1,1746.2
+SEG0496,Tripura,NH-208 Udaipur-Amarpur,national_highway,23.519861,91.562382,7.02,7.116,0,4452.7
+SEG0497,Tripura,NH-208 Udaipur-Amarpur,national_highway,23.526317,91.604481,18.13,5.396,3,4660.3
+SEG0498,Tripura,Agartala-Melaghar Rd,primary,23.833429,91.296802,6.81,7.586,1,3636.4
+SEG0499,Tripura,Agartala-Melaghar Rd,primary,23.811601,91.332304,9.04,6.496,0,4527.2
+SEG0500,Tripura,Agartala-Melaghar Rd,primary,23.792826,91.385951,13.87,5.364,2,1890.9
+SEG0501,Tripura,Agartala-Melaghar Rd,primary,23.770648,91.432907,7.58,5.283,1,2275.9
+SEG0502,Tripura,Dharmanagar-Kumarghat Rd,primary,24.348062,92.126969,22.17,4.544,3,2418.7
+SEG0503,Tripura,Dharmanagar-Kumarghat Rd,primary,24.312365,92.033692,23.5,7.913,4,4355.7
+SEG0504,Tripura,Dharmanagar-Kumarghat Rd,primary,24.253151,91.951147,13.83,5.596,3,4992.6
+SEG0505,Tripura,Dharmanagar-Kumarghat Rd,primary,24.210568,91.860338,19.9,1.393,3,1828.0
+SEG0506,Tripura,Kailasahar-Manu Rd,primary,23.982411,92.021307,9.6,1.743,0,4467.6
+SEG0507,Tripura,Kailasahar-Manu Rd,primary,23.930792,92.051566,5.71,4.69,0,1986.6
+SEG0508,Tripura,Kailasahar-Manu Rd,primary,23.895983,92.078543,28.08,2.659,3,1027.0
+SEG0509,Tripura,Belonia-Sabroom Rd,secondary,23.205555,91.485199,23.48,3.989,3,1724.0
+SEG0510,Tripura,Belonia-Sabroom Rd,secondary,23.122224,91.527715,10.55,3.884,2,4270.9
+SEG0511,Tripura,Belonia-Sabroom Rd,secondary,23.043974,91.577356,21.25,2.529,2,2361.2
+SEG0512,Tripura,Gomati Valley Rd,secondary,23.515557,91.498145,15.82,3.787,3,1679.6
+SEG0513,Tripura,Gomati Valley Rd,secondary,23.462004,91.544264,6.61,6.256,0,2381.2
+SEG0514,Tripura,Gomati Valley Rd,secondary,23.406441,91.577693,25.38,2.906,3,4746.1
+SEG0515,Tripura,Twisung-Khowai Rd,secondary,24.057935,91.604401,23.69,3.934,4,2540.6
+SEG0516,Tripura,Twisung-Khowai Rd,secondary,24.05897,91.602293,7.61,3.611,2,2523.9
+SEG0517,Tripura,Twisung-Khowai Rd,secondary,24.056072,91.596578,5.91,5.161,0,2722.5
+SEG0518,Tripura,Jirania-Bishalgarh,tertiary,23.79778,91.354496,10.42,2.559,0,3022.0
+SEG0519,Tripura,Jirania-Bishalgarh,tertiary,23.750029,91.357859,7.34,4.623,0,2182.1
+SEG0520,Tripura,Jirania-Bishalgarh,tertiary,23.706706,91.353837,5.61,7.56,0,1332.8
+SEG0521,Tripura,BRO Access Rd South,unclassified,23.082868,91.640702,20.44,5.077,1,4944.1
+SEG0522,Tripura,BRO Access Rd South,unclassified,23.046339,91.663923,10.1,5.173,2,2412.6
+SEG0523,Tripura,BRO Access Rd South,unclassified,23.018884,91.687589,29.93,3.343,2,3524.9
+SEG0524,Sikkim,NH-10 Siliguri-Gangtok,national_highway,26.745384,88.441822,43.23,6.024,8,1426.6
+SEG0525,Sikkim,NH-10 Siliguri-Gangtok,national_highway,26.800517,88.461645,32.49,2.226,6,1825.3
+SEG0526,Sikkim,NH-10 Siliguri-Gangtok,national_highway,26.870474,88.478474,38.3,9.994,7,1476.4
+SEG0527,Sikkim,NH-10 Siliguri-Gangtok,national_highway,26.925642,88.492941,35.57,7.093,4,3270.2
+SEG0528,Sikkim,NH-10 Siliguri-Gangtok,national_highway,27.001238,88.511156,35.67,2.71,7,4504.0
+SEG0529,Sikkim,NH-10 Siliguri-Gangtok,national_highway,27.053289,88.527126,29.4,1.59,5,1827.4
+SEG0530,Sikkim,NH-10 Siliguri-Gangtok,national_highway,27.113468,88.544529,27.12,8.297,6,1991.1
+SEG0531,Sikkim,NH-10 Siliguri-Gangtok,national_highway,27.176222,88.576075,40.36,9.611,5,4476.2
+SEG0532,Sikkim,NH-10 Siliguri-Gangtok,national_highway,27.238214,88.593546,25.4,9.203,6,2212.8
+SEG0533,Sikkim,NH-10 Siliguri-Gangtok,national_highway,27.300686,88.610124,27.7,9.209,5,4148.5
+SEG0534,Sikkim,NH-717A Gangtok-Nathula,national_highway,27.331518,88.633492,35.62,3.166,7,2145.9
+SEG0535,Sikkim,NH-717A Gangtok-Nathula,national_highway,27.340258,88.669374,26.22,5.116,5,3533.4
+SEG0536,Sikkim,NH-717A Gangtok-Nathula,national_highway,27.350998,88.716237,33.63,8.34,4,3782.0
+SEG0537,Sikkim,NH-717A Gangtok-Nathula,national_highway,27.366718,88.748329,36.11,3.36,7,1217.9
+SEG0538,Sikkim,NH-717A Gangtok-Nathula,national_highway,27.373804,88.792324,27.55,1.359,6,1473.4
+SEG0539,Sikkim,NH-717A Gangtok-Nathula,national_highway,27.370742,88.819089,40.9,3.648,7,3105.6
+SEG0540,Sikkim,NH-31A Gangtok-Singtam,national_highway,27.322107,88.604598,37.07,2.733,8,1211.9
+SEG0541,Sikkim,NH-31A Gangtok-Singtam,national_highway,27.307226,88.586979,27.63,7.66,6,1154.8
+SEG0542,Sikkim,NH-31A Gangtok-Singtam,national_highway,27.283395,88.566997,24.55,1.531,6,2030.3
+SEG0543,Sikkim,NH-31A Gangtok-Singtam,national_highway,27.266472,88.550909,38.06,3.363,8,3777.6
+SEG0544,Sikkim,NH-31A Gangtok-Singtam,national_highway,27.253677,88.525321,29.5,2.959,4,3917.8
+SEG0545,Sikkim,Gangtok-Pelling Rd,primary,27.319821,88.579261,29.23,2.1,4,1921.1
+SEG0546,Sikkim,Gangtok-Pelling Rd,primary,27.332804,88.504924,30.69,8.067,5,1866.3
+SEG0547,Sikkim,Gangtok-Pelling Rd,primary,27.315267,88.442306,38.24,6.484,5,820.9
+SEG0548,Sikkim,Gangtok-Pelling Rd,primary,27.322446,88.36312,30.73,9.303,6,2679.0
+SEG0549,Sikkim,Gangtok-Pelling Rd,primary,27.311863,88.2895,43.13,3.088,9,4523.5
+SEG0550,Sikkim,Gangtok-Pelling Rd,primary,27.317848,88.215884,40.01,6.454,8,3392.9
+SEG0551,Sikkim,Gangtok-Lachung Rd,primary,27.360842,88.637177,28.21,6.3,4,2656.0
+SEG0552,Sikkim,Gangtok-Lachung Rd,primary,27.42651,88.652264,30.6,4.903,7,1564.2
+SEG0553,Sikkim,Gangtok-Lachung Rd,primary,27.489324,88.677444,22.37,9.669,3,4226.2
+SEG0554,Sikkim,Gangtok-Lachung Rd,primary,27.547865,88.689642,42.86,3.905,6,3357.0
+SEG0555,Sikkim,Gangtok-Lachung Rd,primary,27.598918,88.720459,24.62,6.866,5,4079.9
+SEG0556,Sikkim,Gangtok-Lachung Rd,primary,27.660475,88.743116,26.72,4.973,5,4660.2
+SEG0557,Sikkim,Ravangla-Namchi Rd,primary,27.274321,88.355098,32.71,1.237,6,1151.0
+SEG0558,Sikkim,Ravangla-Namchi Rd,primary,27.246818,88.360053,43.92,2.598,6,3995.5
+SEG0559,Sikkim,Ravangla-Namchi Rd,primary,27.212101,88.362287,29.62,6.747,6,1584.1
+SEG0560,Sikkim,Ravangla-Namchi Rd,primary,27.179447,88.360556,27.87,7.343,5,2695.5
+SEG0561,Sikkim,Jorethang-Melli Rd,secondary,27.092857,88.161441,37.49,3.29,7,1945.9
+SEG0562,Sikkim,Jorethang-Melli Rd,secondary,27.081941,88.197091,29.62,4.978,3,1610.6
+SEG0563,Sikkim,Jorethang-Melli Rd,secondary,27.063053,88.224697,37.84,9.484,5,2592.5
+SEG0564,Sikkim,Yuksom-Dzongri Rd,secondary,27.434769,88.157313,22.99,7.437,4,4340.8
+SEG0565,Sikkim,Yuksom-Dzongri Rd,secondary,27.470682,88.13884,30.66,3.591,7,1526.7
+SEG0566,Sikkim,Yuksom-Dzongri Rd,secondary,27.51164,88.116619,41.02,6.683,5,3789.2
+SEG0567,Sikkim,Rongli-Rhenock Rd,secondary,27.226737,88.803238,22.02,6.306,4,2286.2
+SEG0568,Sikkim,Rongli-Rhenock Rd,secondary,27.209192,88.778134,29.63,1.446,6,4647.3
+SEG0569,Sikkim,Rongli-Rhenock Rd,secondary,27.191291,88.748686,44.18,2.112,6,3802.7
+SEG0570,Sikkim,Chungthang-Lachen,tertiary,27.624953,88.62234,24.21,2.535,5,3337.4
+SEG0571,Sikkim,Chungthang-Lachen,tertiary,27.665314,88.592374,38.35,9.858,5,3647.6
+SEG0572,Sikkim,Chungthang-Lachen,tertiary,27.697911,88.568125,30.39,0.84,4,4735.5
+SEG0573,Sikkim,BRO Zuluk Rd,unclassified,27.292194,88.884826,26.0,1.331,5,1138.3
+SEG0574,Sikkim,BRO Zuluk Rd,unclassified,27.321464,88.933118,25.3,3.453,4,912.8
+SEG0575,Sikkim,BRO Zuluk Rd,unclassified,27.335037,88.965005,36.9,4.37,5,3131.0
+SEG0576,Sikkim,BRO North Sikkim,unclassified,27.727184,88.759304,43.43,7.806,7,4650.1
+SEG0577,Sikkim,BRO North Sikkim,unclassified,27.796479,88.777674,31.58,0.833,7,1062.8
+SEG0578,Sikkim,BRO North Sikkim,unclassified,27.862894,88.787167,30.09,7.252,7,3278.9
