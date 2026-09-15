@@ -2,6 +2,16 @@
 Front - Copy/
 .git_backups/
 
+# Node / Web Frontend
+node_modules/
+*/node_modules/
+**/node_modules/
+.npm
+package-lock.json.bak
+*.bak
+dist/
+.output/
+
 # Python
 __pycache__/
 *.py[cod]

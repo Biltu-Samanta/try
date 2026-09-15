@@ -953,15 +953,52 @@ def emergency_routes():
     return jsonify({"emergency_routes": safe[:25], "safe_zones": filtered_zones})
 
 # ── Frontend Static File Serving ──────────────────────────────────────────────
+LANDING_DIST = FRONTEND_DIR / "landing-page" / "dist"
+
 @app.route("/")
+@app.route("/landing")
+@app.route("/landing-page")
 def serve_index():
+    landing_index = LANDING_DIST / "index.html"
+    if landing_index.is_file():
+        return send_from_directory(str(LANDING_DIST), "index.html")
     return send_from_directory(str(FRONTEND_DIR), "index.html")
+
+@app.route("/dashboard")
+@app.route("/dashboard.html")
+@app.route("/app")
+def serve_dashboard():
+    return send_from_directory(str(FRONTEND_DIR), "dashboard.html")
+
+@app.route("/assets/<path:path>")
+def serve_assets(path):
+    # Check in frontend/assets first (e.g. northeast_mountains_bg.jpg)
+    frontend_assets = FRONTEND_DIR / "assets"
+    if frontend_assets.is_dir() and (frontend_assets / path).is_file():
+        return send_from_directory(str(frontend_assets), path)
+    # Check in landing-page/dist/assets
+    landing_assets = LANDING_DIST / "assets"
+    if landing_assets.is_dir() and (landing_assets / path).is_file():
+        return send_from_directory(str(landing_assets), path)
+    return jsonify({"error": f"Asset '{path}' not found"}), 404
+
+@app.route("/images/<path:path>")
+def serve_images(path):
+    images_dir = FRONTEND_DIR / "images"
+    if images_dir.is_dir() and (images_dir / path).is_file():
+        return send_from_directory(str(images_dir), path)
+    return jsonify({"error": f"Image '{path}' not found"}), 404
 
 @app.route("/<path:path>")
 def serve_static(path):
+    # Check in main frontend folder first (css, js, etc.)
     target = FRONTEND_DIR / path
     if target.is_file():
         return send_from_directory(str(FRONTEND_DIR), path)
+    # Check in landing-page dist folder
+    landing_target = LANDING_DIST / path
+    if landing_target.is_file():
+        return send_from_directory(str(LANDING_DIST), path)
     return jsonify({"error": f"Path '{path}' not found"}), 404
 
 # ─────────────────────────────────────────────────────────────────────────────

@@ -1,6 +1,8 @@
 /* api.js — Centralised API client */
 
-export const API_BASE = "http://localhost:5050/api";
+export const API_BASE = (window.location.protocol === "http:" || window.location.protocol === "https:")
+  ? `${window.location.origin}/api`
+  : "http://localhost:5050/api";
 
 let _loadingCount = 0;
 const _refreshBtn = () => document.getElementById("refresh-btn");
@@ -14,7 +16,8 @@ function setLoading(state) {
 export async function fetchAPI(endpoint, options = {}) {
   setLoading(true);
   try {
-    const url = endpoint.startsWith("http") ? endpoint : `${API_BASE}${endpoint}`;
+    const cleanEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
+    const url = endpoint.startsWith("http") ? endpoint : `${API_BASE}${cleanEndpoint}`;
     const response = await fetch(url, {
       headers: { "Content-Type": "application/json", ...options.headers },
       ...options,

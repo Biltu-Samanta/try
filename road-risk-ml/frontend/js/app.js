@@ -93,9 +93,11 @@ window.navigate = function (screen) {
   document.getElementById(`screen-${screen}`)?.classList.add("active");
   document.getElementById(`nav-${screen}`)?.classList.add("active");
 
-  // Update topbar
-  document.getElementById("topbar-title").textContent = SCREENS[screen].title;
-  document.getElementById("topbar-subtitle").textContent = SCREENS[screen].subtitle;
+  // Update topbar if elements exist
+  const tTitle = document.getElementById("topbar-title");
+  if (tTitle && SCREENS[screen]) tTitle.textContent = SCREENS[screen].title;
+  const tSub = document.getElementById("topbar-subtitle");
+  if (tSub && SCREENS[screen]) tSub.textContent = SCREENS[screen].subtitle;
 
   currentScreen = screen;
 
@@ -122,39 +124,55 @@ window.navigate = function (screen) {
 // INITIALISATION
 // ─────────────────────────────────────────────────────────────
 async function init() {
-  setupSidebarToggle();
-  startLiveClock();
-  initNotifications();
-  await checkAPIStatus();
-  await loadSegments();
-  await loadLocations(currentState);
-  initDashboard();
-  initMiniMap();
-  setupNavItems();
-  startSSEStream(handleLiveAlert);
+  try {
+    setupSidebarToggle();
+    startLiveClock();
+    initNotifications();
+    setupSearch();
+    await checkAPIStatus();
+    await loadSegments();
+    await loadLocations(currentState);
+    await initDashboard();
+    initMiniMap();
+    setupNavItems();
+    startSSEStream(handleLiveAlert);
+  } catch (err) {
+    console.error("[INIT ERROR]", err);
+  }
 }
 
 function setupNavItems() {
   document.querySelectorAll(".nav-item[data-screen]").forEach(btn => {
     btn.addEventListener("click", () => navigate(btn.dataset.screen));
   });
-  document.getElementById("refresh-btn").addEventListener("click", refreshAll);
+  const refBtn = document.getElementById("refresh-btn");
+  if (refBtn) {
+    refBtn.addEventListener("click", refreshAll);
+  }
 }
 
 function setupSidebarToggle() {
-  document.getElementById("sidebar-toggle").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.toggle("collapsed");
-  });
+  const toggleBtn = document.getElementById("sidebar-toggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const sidebar = document.getElementById("sidebar");
+      if (sidebar) sidebar.classList.toggle("collapsed");
+    });
+  }
 }
 
 function startLiveClock() {
   const el = document.getElementById("live-time");
   function update() {
     const now = new Date();
-    el.textContent = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    if (el) {
+      el.textContent = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+    }
   }
-  update();
-  setInterval(update, 1000);
+  if (el) {
+    update();
+    setInterval(update, 1000);
+  }
 
   // Emergency clock
   setInterval(() => {
@@ -237,9 +255,21 @@ window.toggleMuteAlerts = function () {
 // DASHBOARD
 // ─────────────────────────────────────────────────────────────
 async function initDashboard() {
-  await Promise.all([loadKPI(), loadDistricts(), loadAlertTicker()]);
-  renderStateRoadProblems();
-  initDashboardSubDistrictOptions(currentState !== "all" ? currentState : "Manipur");
+  try {
+    await Promise.all([loadKPI(), loadDistricts(), loadAlertTicker()]);
+  } catch (e) {
+    console.error("Dashboard initial fetch failed:", e);
+  }
+  try {
+    if (typeof renderStateRoadProblems === "function" && document.getElementById("dash-road-problems-list")) {
+      renderStateRoadProblems();
+    }
+  } catch (e) {}
+  try {
+    if (typeof initDashboardSubDistrictOptions === "function" && document.getElementById("dash-sub-district-select")) {
+      initDashboardSubDistrictOptions(currentState !== "all" ? currentState : "Manipur");
+    }
+  } catch (e) {}
 }
 
 async function loadKPI() {
@@ -247,26 +277,91 @@ async function loadKPI() {
     const qs   = currentState !== "all" ? `?state=${encodeURIComponent(currentState)}` : "";
     const data = await fetchAPI(`/kpi${qs}`);
     const grid = document.getElementById("kpi-grid");
+    if (!grid) return;
     const kpis = [
-      { iconName: "bell",      label: "Active Alerts",        value: data.total_active_alerts,    color: "var(--c-vibrant-blue)", trend: "Live Feeds" },
-      { iconName: "blocked",   label: "Blocked Roads",        value: data.blocked_roads,          color: "var(--c-vibrant-blue)", trend: "Critical" },
-      { iconName: "truck",     label: "Vehicles in Transit",  value: data.vehicles_in_transit,    color: "var(--c-light-cyan)",   trend: "Monitored" },
-      { iconName: "warning",   label: "Districts at Risk",    value: data.districts_at_risk,      color: "var(--c-light-cyan)",   trend: "Advisory" },
-      { iconName: "check",     label: "Safe Routes",          value: data.safe_routes_available,  color: "var(--c-soft-mint)",    trend: "Available" },
-      { iconName: "emergency", label: "Critical Segments",    value: data.critical_segments,      color: "var(--c-vibrant-blue)", trend: "Action Required" },
+      {
+        icon: "🚨",
+        label: "Active Alerts",
+        value: data.total_active_alerts ?? 0,
+        badgeText: "Live",
+        badgeColor: "rgba(74, 222, 128, 0.15)",
+        badgeTextColor: "#4ade80",
+        sparkline: "M0,18 Q15,5 30,12 T60,4",
+        sparkColor: "#4ade80"
+      },
+      {
+        icon: "⛔",
+        label: "Blocked Roads",
+        value: data.blocked_roads ?? 0,
+        badgeText: "Critical",
+        badgeColor: "rgba(239, 68, 68, 0.18)",
+        badgeTextColor: "#f87171",
+        sparkline: "M0,10 Q20,19 40,8 T60,16",
+        sparkColor: "#ef4444"
+      },
+      {
+        icon: "🚛",
+        label: "Vehicles in Transit",
+        value: data.vehicles_in_transit ?? 0,
+        badgeText: "Monitored",
+        badgeColor: "rgba(74, 222, 128, 0.15)",
+        badgeTextColor: "#4ade80",
+        sparkline: "M0,16 Q15,4 35,14 T60,6",
+        sparkColor: "#4ade80"
+      },
+      {
+        icon: "⚠️",
+        label: "Districts at Risk",
+        value: data.districts_at_risk ?? 0,
+        badgeText: "Advisory",
+        badgeColor: "rgba(249, 115, 22, 0.18)",
+        badgeTextColor: "#fb923c",
+        sparkline: "M0,12 Q20,6 40,15 T60,10",
+        sparkColor: "#f97316"
+      },
+      {
+        icon: "✅",
+        label: "Safe Routes",
+        value: data.safe_routes_available ?? 0,
+        badgeText: "Available",
+        badgeColor: "rgba(74, 222, 128, 0.15)",
+        badgeTextColor: "#4ade80",
+        sparkline: "M0,14 Q20,18 40,8 T60,4",
+        sparkColor: "#4ade80"
+      },
+      {
+        icon: "🛑",
+        label: "Critical Segments",
+        value: data.critical_segments ?? 0,
+        badgeText: "Action Required",
+        badgeColor: "rgba(239, 68, 68, 0.18)",
+        badgeTextColor: "#f87171",
+        sparkline: "M0,8 Q20,18 40,6 T60,15",
+        sparkColor: "#ef4444"
+      },
     ];
+
     grid.innerHTML = kpis.map((k, i) => `
-      <div class="glass-card kpi-card" style="animation:fadeInUp 0.4s ease ${i * 0.07}s both;">
-        <div class="kpi-icon" style="color:${k.color};">${getIcon(k.iconName)}</div>
-        <div class="kpi-value" style="color:${k.color};" data-target="${k.value}">0</div>
-        <div class="kpi-label">${k.label}</div>
-        <div class="kpi-trend text-muted">${k.trend}</div>
+      <div class="glass-card kpi-card" style="animation:fadeInUp 0.4s ease ${i * 0.07}s both;background:rgba(12,28,18,0.72);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:12px 14px;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="font-size:1.15rem;width:26px;display:flex;align-items:center;justify-content:center;">${k.icon}</div>
+          <div class="kpi-value" style="font-size:1.6rem;font-weight:700;color:#ffffff;line-height:1;" data-target="${k.value}">0</div>
+        </div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:4px;margin-top:6px;">
+          <div>
+            <div style="font-size:0.75rem;color:#8ea88a;font-weight:500;">${k.label}</div>
+            <div style="display:inline-block;font-size:0.65rem;font-weight:600;color:${k.badgeTextColor};background:${k.badgeColor};padding:1px 6px;border-radius:10px;margin-top:2px;">${k.badgeText}</div>
+          </div>
+          <svg width="54" height="18" viewBox="0 0 60 20" style="overflow:visible;">
+            <path d="${k.sparkline}" fill="none" stroke="${k.sparkColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
     `).join("");
 
     // Animate count-up
     grid.querySelectorAll("[data-target]").forEach(el => {
-      const target = parseInt(el.dataset.target);
+      const target = parseInt(el.dataset.target) || 0;
       let current = 0;
       const step = Math.max(1, Math.ceil(target / 20));
       const timer = setInterval(() => {
@@ -285,12 +380,17 @@ async function loadDistricts() {
     const qs   = currentState !== "all" ? `?state=${encodeURIComponent(currentState)}` : "";
     const data = await fetchAPI(`/districts${qs}`);
     const list = document.getElementById("district-list");
+    if (!list || !data || !data.districts) return;
     list.innerHTML = data.districts.map(d => `
-      <div class="district-item" onclick="filterMapByDistrict('${d.district}')">
-        <div class="status-indicator ${d.status}"></div>
-        <div class="d-name">${d.district}</div>
-        <div class="d-roads">${d.blocked_roads} blocked</div>
-        ${d.active_alerts > 0 ? `<div class="d-alerts">${d.active_alerts} Alerts</div>` : ""}
+      <div class="district-item" onclick="filterMapByDistrict('${d.district}')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-bottom:6px;border-radius:8px;background:rgba(255,255,255,0.03);cursor:pointer;transition:all 0.2s;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="status-indicator ${d.status}" style="width:8px;height:8px;border-radius:50%;background:${d.status === 'blocked' ? '#ef4444' : (d.status === 'caution' ? '#f59e0b' : '#22c55e')};"></div>
+          <div class="d-name" style="font-size:0.8rem;color:#e2fbe8;font-weight:500;">${d.district}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div class="d-roads" style="font-size:0.72rem;color:#94b08d;">${d.blocked_roads} blocked</div>
+          ${d.active_alerts > 0 ? `<div class="d-alerts" style="font-size:0.65rem;color:#f87171;background:rgba(239,68,68,0.15);padding:1px 5px;border-radius:6px;">${d.active_alerts} Alerts</div>` : ""}
+        </div>
       </div>
     `).join("");
   } catch (e) {
@@ -572,8 +672,10 @@ const MAP_TILES = {
 let currentTileLayer = null;
 let currentMapMode   = "osm";  // 'osm' | 'satellite' | 'terrain'
 let is3DMode         = false;
+let mapPitch         = 38;     // 3D tilt angle in degrees
+let mapBearing       = 0;      // 3D rotation in degrees
 
-window.setMapLayer = function (mode) {
+window.setMapLayer = function (mode, preserve3D = true) {
   if (!mainMap) return;
   currentMapMode = mode;
 
@@ -589,33 +691,106 @@ window.setMapLayer = function (mode) {
     document.getElementById(`map-mode-${m}`)?.classList.toggle("active", m === mode);
   });
 
-  // Exit 3D if switching tile
-  if (is3DMode) toggle3DMap();
+  // Exit 3D only if explicitly asked
+  if (!preserve3D && is3DMode) {
+    window.toggle3DMap(false);
+  }
 };
 
-window.toggle3DMap = function () {
+window.toggle3DMap = function (forceState) {
   if (!mainMap) return;
-  is3DMode = !is3DMode;
+  is3DMode = typeof forceState === "boolean" ? forceState : !is3DMode;
   const mapEl = document.getElementById("main-map");
   const btn = document.getElementById("map-mode-3d");
+  const hud = document.getElementById("map-3d-hud");
 
   if (is3DMode) {
     // 3D perspective via CSS transform
-    mapEl.style.transform = "perspective(1200px) rotateX(28deg) scale(1.15)";
-    mapEl.style.transformOrigin = "center top";
-    mapEl.style.transition = "transform 0.5s ease";
-    mapEl.style.overflow = "hidden";
-    if (btn) { btn.classList.add("active"); btn.textContent = "Exit 3D"; }
-    // Switch to terrain in 3D for elevation feel
-    if (currentMapMode === "osm") window.setMapLayer("terrain");
+    mapEl.style.transform = `perspective(1000px) rotateX(${mapPitch}deg) rotateZ(${mapBearing}deg) scale(1.18)`;
+    mapEl.style.transformOrigin = "center 45%";
+    mapEl.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+    mapEl.classList.add("map-in-3d");
+    if (btn) {
+      btn.classList.add("active");
+      btn.innerHTML = `🏔️ 3D Active <span class="active-dot"></span>`;
+    }
+    if (hud) hud.style.display = "flex";
+
+    // Switch to terrain in 3D for mountain elevation feel
+    if (currentMapMode === "osm") {
+      window.setMapLayer("terrain", true);
+    }
   } else {
     mapEl.style.transform = "none";
-    mapEl.style.transition = "transform 0.5s ease";
-    if (btn) { btn.classList.remove("active"); btn.textContent = "3D"; }
-    document.getElementById("map-mode-3d")?.classList.remove("active");
+    mapEl.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+    mapEl.classList.remove("map-in-3d");
+    if (btn) {
+      btn.classList.remove("active");
+      btn.innerHTML = `🏔️ 3D Mode`;
+    }
+    if (hud) hud.style.display = "none";
   }
 
-  setTimeout(() => mainMap.invalidateSize(), 520);
+  setTimeout(() => {
+    if (mainMap) mainMap.invalidateSize();
+  }, 520);
+};
+
+window.adjust3DPitch = function (deg) {
+  mapPitch = Math.max(15, Math.min(65, deg));
+  if (is3DMode) {
+    const mapEl = document.getElementById("main-map");
+    if (mapEl) {
+      mapEl.style.transform = `perspective(1000px) rotateX(${mapPitch}deg) rotateZ(${mapBearing}deg) scale(1.18)`;
+    }
+    document.querySelectorAll(".pitch-btn").forEach(b => {
+      b.classList.toggle("active", parseInt(b.dataset.pitch) === mapPitch);
+    });
+  }
+};
+
+window.adjust3DBearing = function (delta) {
+  if (delta === 0) {
+    mapBearing = 0;
+  } else {
+    mapBearing = (mapBearing + delta) % 360;
+  }
+  if (is3DMode) {
+    const mapEl = document.getElementById("main-map");
+    if (mapEl) {
+      mapEl.style.transform = `perspective(1000px) rotateX(${mapPitch}deg) rotateZ(${mapBearing}deg) scale(1.18)`;
+    }
+    const compass = document.getElementById("compass-indicator");
+    if (compass) compass.style.transform = `rotate(${-mapBearing}deg)`;
+  }
+};
+
+let miniMapIs3D = false;
+window.toggleMiniMap3D = function (forceState) {
+  if (!miniMap) return;
+  miniMapIs3D = typeof forceState === "boolean" ? forceState : !miniMapIs3D;
+  const mapEl = document.getElementById("mini-map");
+  const btn   = document.getElementById("mini-map-3d-btn");
+
+  if (miniMapIs3D) {
+    mapEl.style.transform      = "perspective(900px) rotateX(34deg) scale(1.15)";
+    mapEl.style.transformOrigin = "center 40%";
+    mapEl.style.transition      = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+    if (btn) {
+      btn.classList.add("btn-primary");
+      btn.classList.remove("btn-secondary");
+      btn.innerHTML = "🏔️ 3D Active";
+    }
+  } else {
+    mapEl.style.transform  = "none";
+    mapEl.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+    if (btn) {
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-secondary");
+      btn.innerHTML = "🏔️ 3D View";
+    }
+  }
+  setTimeout(() => { if (miniMap) miniMap.invalidateSize(); }, 520);
 };
 
 function initMainMap() {
@@ -625,6 +800,7 @@ function initMainMap() {
   const meta = NE_STATE_META[currentState] || NE_STATE_META["all"];
   mainMap = L.map("main-map", { zoomControl: true })
     .setView(meta.center, meta.zoom);
+  window.mainMap = mainMap;
 
   // Default OSM tile layer
   currentTileLayer = L.tileLayer(MAP_TILES.osm.url, {
@@ -817,9 +993,54 @@ window.planRouteTo = function (name) {
 };
 
 // ─────────────────────────────────────────────────────────────
-// ROUTE PLANNING
+// ROUTE PLANNING & LOCATIONS
 // ─────────────────────────────────────────────────────────────
-let cachedLocations     = [];
+const DEFAULT_NE_LOCATIONS = [
+  { name: "Guwahati", state: "Assam", lat: 26.1445, lon: 91.7362 },
+  { name: "Dispur", state: "Assam", lat: 26.1408, lon: 91.7900 },
+  { name: "Silchar", state: "Assam", lat: 24.8333, lon: 92.7789 },
+  { name: "Dibrugarh", state: "Assam", lat: 27.4728, lon: 94.9120 },
+  { name: "Jorhat", state: "Assam", lat: 26.7509, lon: 94.2037 },
+  { name: "Tezpur", state: "Assam", lat: 26.6338, lon: 92.7926 },
+  { name: "Nagaon", state: "Assam", lat: 26.3465, lon: 92.6840 },
+  { name: "Imphal", state: "Manipur", lat: 24.8170, lon: 93.9368 },
+  { name: "Churachandpur", state: "Manipur", lat: 24.3330, lon: 93.6760 },
+  { name: "Thoubal", state: "Manipur", lat: 24.6370, lon: 94.0040 },
+  { name: "Bishnupur", state: "Manipur", lat: 24.6300, lon: 93.7600 },
+  { name: "Senapati", state: "Manipur", lat: 25.2670, lon: 94.0170 },
+  { name: "Ukhrul", state: "Manipur", lat: 25.1160, lon: 94.3620 },
+  { name: "Tamenglong", state: "Manipur", lat: 24.9850, lon: 93.4930 },
+  { name: "Kakching", state: "Manipur", lat: 24.4840, lon: 93.9800 },
+  { name: "Mao", state: "Manipur", lat: 25.5080, lon: 94.1370 },
+  { name: "Shillong", state: "Meghalaya", lat: 25.5788, lon: 91.8933 },
+  { name: "Cherrapunji (Sohra)", state: "Meghalaya", lat: 25.2702, lon: 91.7323 },
+  { name: "Tura", state: "Meghalaya", lat: 25.5142, lon: 90.2033 },
+  { name: "Jowai", state: "Meghalaya", lat: 25.4455, lon: 92.2032 },
+  { name: "Nongpoh", state: "Meghalaya", lat: 25.9016, lon: 91.8803 },
+  { name: "Gangtok", state: "Sikkim", lat: 27.3389, lon: 88.6065 },
+  { name: "Namchi", state: "Sikkim", lat: 27.1667, lon: 88.3500 },
+  { name: "Gyalshing", state: "Sikkim", lat: 27.2833, lon: 88.2333 },
+  { name: "Mangan", state: "Sikkim", lat: 27.5167, lon: 88.5333 },
+  { name: "Kohima", state: "Nagaland", lat: 25.6751, lon: 94.1086 },
+  { name: "Dimapur", state: "Nagaland", lat: 25.9068, lon: 93.7271 },
+  { name: "Mokokchung", state: "Nagaland", lat: 26.3262, lon: 94.5244 },
+  { name: "Tuensang", state: "Nagaland", lat: 26.2825, lon: 94.8286 },
+  { name: "Aizawl", state: "Mizoram", lat: 23.7271, lon: 92.7176 },
+  { name: "Lunglei", state: "Mizoram", lat: 22.8872, lon: 92.7402 },
+  { name: "Champhai", state: "Mizoram", lat: 23.4754, lon: 93.3283 },
+  { name: "Serchhip", state: "Mizoram", lat: 23.3417, lon: 92.8500 },
+  { name: "Itanagar", state: "Arunachal Pradesh", lat: 27.0844, lon: 93.6053 },
+  { name: "Naharlagun", state: "Arunachal Pradesh", lat: 27.1080, lon: 93.6930 },
+  { name: "Tawang", state: "Arunachal Pradesh", lat: 27.5861, lon: 91.8594 },
+  { name: "Pasighat", state: "Arunachal Pradesh", lat: 28.0667, lon: 95.3333 },
+  { name: "Ziro", state: "Arunachal Pradesh", lat: 27.5594, lon: 93.8385 },
+  { name: "Agartala", state: "Tripura", lat: 23.8315, lon: 91.2868 },
+  { name: "Udaipur", state: "Tripura", lat: 23.5333, lon: 91.4833 },
+  { name: "Dharmanagar", state: "Tripura", lat: 24.3667, lon: 92.1667 },
+  { name: "Kailashahar", state: "Tripura", lat: 24.3333, lon: 92.0000 }
+];
+
+let cachedLocations     = [...DEFAULT_NE_LOCATIONS];
 let routeShortestLine   = null;
 let routeSafeLine       = null;
 let routeOriginMarker   = null;
@@ -833,6 +1054,431 @@ let routeHazardMarkers  = [];
 let routeCurrentTileLayer = null; // current tile layer on route map
 let routeCurrentMapMode   = "osm";
 let routeIs3D             = false;
+let searchPinMarker       = null;
+
+// ─────────────────────────────────────────────────────────────
+// SEARCH ENGINE: TOPBAR & GIS MAP LIVE SEARCH
+// ─────────────────────────────────────────────────────────────
+function highlightMapSegment(seg) {
+  if (!mainMap) initMainMap();
+  const targetCoords = (seg.coords && seg.coords.length > 0)
+    ? seg.coords[Math.floor(seg.coords.length / 2)]
+    : [seg.lat, seg.lon];
+
+  mainMap.setView(targetCoords, 13);
+
+  if (searchPinMarker) {
+    mainMap.removeLayer(searchPinMarker);
+    searchPinMarker = null;
+  }
+
+  const pinHtml = `
+    <div style="position:relative;display:flex;align-items:center;justify-content:center;">
+      <div style="position:absolute;width:38px;height:38px;border-radius:50%;background:rgba(31,234,0,0.35);animation:pulse-ring 1.2s infinite;"></div>
+      <div style="width:26px;height:26px;border-radius:50%;background:#1fea00;border:2px solid #ffffff;display:flex;align-items:center;justify-content:center;color:#031408;box-shadow:0 0 12px #1fea00;font-size:12px;">
+        📍
+      </div>
+    </div>
+  `;
+  const pinIcon = L.divIcon({
+    html: pinHtml,
+    className: "",
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+  });
+
+  searchPinMarker = L.marker(targetCoords, { icon: pinIcon, zIndexOffset: 2000 })
+    .addTo(mainMap)
+    .bindPopup(`
+      <div class="road-popup">
+        <h4>${seg.road_name || seg.name}</h4>
+        <div class="popup-row"><span class="popup-label">District</span><span class="popup-val">${seg.district || "N/A"}, ${seg.state || ""}</span></div>
+        <div class="popup-row"><span class="popup-label">Road</span><span class="popup-val">${seg.road || "Highway"}</span></div>
+        <div class="popup-row"><span class="popup-label">Status</span><span class="popup-val">${seg.status || "open"}</span></div>
+        <div class="popup-row"><span class="popup-label">Risk</span><span class="popup-val text-danger">${seg.risk_percentage || ((seg.risk_probability || 0.2) * 100).toFixed(0) + '%'}</span></div>
+        <div style="margin-top:8px;display:flex;gap:6px;">
+          <button style="flex:1;padding:5px 10px;background:#1fea00;color:#031408;border:none;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:700;" onclick="window.planRouteTo('${seg.road_name || seg.name}')">Plan Route Here</button>
+        </div>
+      </div>
+    `)
+    .openPopup();
+}
+
+function highlightMapLocation(loc) {
+  if (!mainMap) initMainMap();
+  mainMap.setView([loc.lat, loc.lon], 12);
+
+  if (searchPinMarker) {
+    mainMap.removeLayer(searchPinMarker);
+  }
+
+  const pinIcon = L.divIcon({
+    html: `<div style="background:#30AFFF;border:2px solid #fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px #30AFFF;color:#fff;font-size:11px;">📍</div>`,
+    className: "",
+    iconSize: [22, 22],
+    iconAnchor: [11, 11]
+  });
+
+  searchPinMarker = L.marker([loc.lat, loc.lon], { icon: pinIcon, zIndexOffset: 2000 })
+    .addTo(mainMap)
+    .bindPopup(`<div class="road-popup"><h4>${loc.name}</h4><div class="popup-row"><span class="popup-label">State</span><span class="popup-val">${loc.state || "NE India"}</span></div><div style="margin-top:8px;"><button style="width:100%;padding:5px 10px;background:#30AFFF;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.75rem;font-weight:700;" onclick="window.planRouteTo('${loc.name}')">Plan Route To Here</button></div></div>`)
+    .openPopup();
+}
+
+function renderTopbarSearchResults(query) {
+  const dropdown = document.getElementById("topbar-search-dropdown");
+  if (!dropdown) return;
+
+  const q = query.toLowerCase();
+
+  const matchedPlaces = cachedLocations.filter(l => 
+    l.name.toLowerCase().includes(q) || (l.state && l.state.toLowerCase().includes(q))
+  ).slice(0, 4);
+
+  const matchedSegments = (globalSegments || []).filter(s =>
+    (s.name && s.name.toLowerCase().includes(q)) ||
+    (s.road && s.road.toLowerCase().includes(q)) ||
+    (s.road_name && s.road_name.toLowerCase().includes(q)) ||
+    (s.district && s.district.toLowerCase().includes(q))
+  ).slice(0, 4);
+
+  const matchedAlerts = (allAlerts || globalAlerts || []).filter(a =>
+    (a.title && a.title.toLowerCase().includes(q)) ||
+    (a.road && a.road.toLowerCase().includes(q)) ||
+    (a.district && a.district.toLowerCase().includes(q)) ||
+    (a.type && a.type.toLowerCase().includes(q))
+  ).slice(0, 3);
+
+  const hasAny = matchedPlaces.length > 0 || matchedSegments.length > 0 || matchedAlerts.length > 0;
+
+  if (!hasAny) {
+    dropdown.innerHTML = `
+      <div class="search-empty-state">
+        No matches found for &ldquo;${query}&rdquo;.<br>
+        <small style="color:#a8c4a4;">Press Enter to search GIS map or coordinates.</small>
+      </div>
+    `;
+    dropdown.classList.add("active");
+    return;
+  }
+
+  let html = "";
+
+  if (matchedPlaces.length > 0) {
+    html += `<div class="search-group-title">📍 Cities & Locations</div>`;
+    matchedPlaces.forEach(p => {
+      html += `
+        <div class="search-result-row" data-type="place" data-lat="${p.lat}" data-lon="${p.lon}" data-name="${p.name}">
+          <div class="search-result-icon">🏙️</div>
+          <div class="search-result-content">
+            <div class="search-result-main">${p.name}</div>
+            <div class="search-result-sub">${p.state || "Northeast India"}</div>
+          </div>
+          <span class="search-result-badge safe">City</span>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedSegments.length > 0) {
+    html += `<div class="search-group-title">🛣️ Monitored Roads</div>`;
+    matchedSegments.forEach(s => {
+      const isBlocked = (s.status || "").toLowerCase() === "blocked";
+      const isCrit = (s.risk_category || "").toLowerCase() === "critical";
+      const badgeCls = isBlocked ? "critical" : isCrit ? "high" : "safe";
+      const badgeTxt = isBlocked ? "Blocked" : isCrit ? "Critical" : "Open";
+      html += `
+        <div class="search-result-row" data-type="segment" data-id="${s.id || ''}">
+          <div class="search-result-icon">${isBlocked ? '⛔' : '🛣️'}</div>
+          <div class="search-result-content">
+            <div class="search-result-main">${s.road_name || s.name}</div>
+            <div class="search-result-sub">${s.road || ''} · ${s.district || ''}, ${s.state || ''}</div>
+          </div>
+          <span class="search-result-badge ${badgeCls}">${badgeTxt}</span>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedAlerts.length > 0) {
+    html += `<div class="search-group-title">🔔 Active Alerts</div>`;
+    matchedAlerts.forEach(a => {
+      html += `
+        <div class="search-result-row" data-type="alert" data-id="${a.id}">
+          <div class="search-result-icon">⚠️</div>
+          <div class="search-result-content">
+            <div class="search-result-main">${a.title || 'Road Alert'}</div>
+            <div class="search-result-sub">${a.district || ''} · ${a.time || 'Recent'}</div>
+          </div>
+          <span class="search-result-badge high">${a.severity || 'Alert'}</span>
+        </div>
+      `;
+    });
+  }
+
+  dropdown.innerHTML = html;
+  dropdown.classList.add("active");
+
+  dropdown.querySelectorAll(".search-result-row").forEach(row => {
+    row.addEventListener("click", () => {
+      dropdown.classList.remove("active");
+      const type = row.dataset.type;
+
+      if (type === "place") {
+        const lat = parseFloat(row.dataset.lat);
+        const lon = parseFloat(row.dataset.lon);
+        const name = row.dataset.name;
+        navigate("map");
+        setTimeout(() => {
+          highlightMapLocation({ lat, lon, name });
+        }, 200);
+      } else if (type === "segment") {
+        const segId = row.dataset.id;
+        const seg = globalSegments.find(s => String(s.id) === String(segId));
+        if (seg) {
+          navigate("map");
+          setTimeout(() => {
+            highlightMapSegment(seg);
+          }, 200);
+        }
+      } else if (type === "alert") {
+        navigate("alerts");
+      }
+    });
+  });
+}
+
+function renderMapSearchResults(query) {
+  const dropdown = document.getElementById("map-search-dropdown");
+  if (!dropdown) return;
+
+  const q = query.toLowerCase();
+
+  const matchedPlaces = cachedLocations.filter(l => 
+    l.name.toLowerCase().includes(q) || (l.state && l.state.toLowerCase().includes(q))
+  ).slice(0, 3);
+
+  const matchedSegments = (globalSegments || []).filter(s =>
+    (s.name && s.name.toLowerCase().includes(q)) ||
+    (s.road && s.road.toLowerCase().includes(q)) ||
+    (s.road_name && s.road_name.toLowerCase().includes(q)) ||
+    (s.district && s.district.toLowerCase().includes(q))
+  ).slice(0, 4);
+
+  if (matchedPlaces.length === 0 && matchedSegments.length === 0) {
+    dropdown.innerHTML = `
+      <div class="search-empty-state">
+        No road matching &ldquo;${query}&rdquo;.<br>
+        <small style="color:#a8c4a4;">Press Enter to search coordinates or state bounds.</small>
+      </div>
+    `;
+    dropdown.classList.add("active");
+    return;
+  }
+
+  let html = "";
+  matchedPlaces.forEach(p => {
+    html += `
+      <div class="search-result-row" data-type="place" data-lat="${p.lat}" data-lon="${p.lon}" data-name="${p.name}">
+        <div class="search-result-icon">🏙️</div>
+        <div class="search-result-content">
+          <div class="search-result-main">${p.name}</div>
+          <div class="search-result-sub">${p.state || "Northeast India"}</div>
+        </div>
+        <span class="search-result-badge safe">City</span>
+      </div>
+    `;
+  });
+
+  matchedSegments.forEach(s => {
+    const isBlocked = (s.status || "").toLowerCase() === "blocked";
+    const badgeCls = isBlocked ? "critical" : "safe";
+    html += `
+      <div class="search-result-row" data-type="segment" data-id="${s.id || ''}">
+        <div class="search-result-icon">${isBlocked ? '⛔' : '🛣️'}</div>
+        <div class="search-result-content">
+          <div class="search-result-main">${s.road_name || s.name}</div>
+          <div class="search-result-sub">${s.road || ''} · ${s.district || ''}</div>
+        </div>
+        <span class="search-result-badge ${badgeCls}">${s.status || "Open"}</span>
+      </div>
+    `;
+  });
+
+  dropdown.innerHTML = html;
+  dropdown.classList.add("active");
+
+  dropdown.querySelectorAll(".search-result-row").forEach(row => {
+    row.addEventListener("click", () => {
+      dropdown.classList.remove("active");
+      if (row.dataset.type === "place") {
+        const lat = parseFloat(row.dataset.lat);
+        const lon = parseFloat(row.dataset.lon);
+        const name = row.dataset.name;
+        highlightMapLocation({ lat, lon, name });
+      } else {
+        const segId = row.dataset.id;
+        const seg = globalSegments.find(s => String(s.id) === String(segId));
+        if (seg) highlightMapSegment(seg);
+      }
+    });
+  });
+}
+
+async function performMapSearch(query) {
+  const dropdown = document.getElementById("map-search-dropdown");
+  if (dropdown) dropdown.classList.remove("active");
+  const trimmed = (query || "").trim();
+  if (!trimmed) return;
+
+  const coordRegex = /^([-+]?\d{1,2}(?:\.\d+)?)[,\s]+([-+]?\d{1,3}(?:\.\d+)?)$/;
+  const match = trimmed.match(coordRegex);
+  if (match) {
+    const lat = parseFloat(match[1]);
+    const lon = parseFloat(match[2]);
+    highlightMapLocation({ lat, lon, name: `Location (${lat.toFixed(3)}, ${lon.toFixed(3)})` });
+    return;
+  }
+
+  const qLower = trimmed.toLowerCase();
+  const seg = (globalSegments || []).find(s =>
+    (s.name && s.name.toLowerCase().includes(qLower)) ||
+    (s.road && s.road.toLowerCase().includes(qLower)) ||
+    (s.road_name && s.road_name.toLowerCase().includes(qLower))
+  );
+  if (seg) {
+    highlightMapSegment(seg);
+    return;
+  }
+
+  const loc = (cachedLocations || []).find(l =>
+    l.name.toLowerCase().includes(qLower) || (l.state && l.state.toLowerCase().includes(qLower))
+  );
+  if (loc) {
+    highlightMapLocation(loc);
+    return;
+  }
+
+  const distSel = document.getElementById("filter-district");
+  if (distSel) {
+    const matchOpt = Array.from(distSel.options).find(o => o.text.toLowerCase().includes(qLower));
+    if (matchOpt) {
+      distSel.value = matchOpt.value;
+      if (window.applyMapFilters) window.applyMapFilters();
+      showToast("Filtered by District", matchOpt.text, "info", 2000);
+      return;
+    }
+  }
+
+  try {
+    const geo = await resolveLocation(trimmed, currentState);
+    if (geo && geo.lat) {
+      highlightMapLocation(geo);
+    }
+  } catch (err) {
+    showToast("Search", `No road or location matching "${trimmed}"`, "warning");
+  }
+}
+
+function setupSearch() {
+  const topbarInput = document.getElementById("topbar-search-input");
+  const topbarDropdown = document.getElementById("topbar-search-dropdown");
+  const mapInput = document.getElementById("map-search-input");
+  const mapDropdown = document.getElementById("map-search-dropdown");
+
+  if (cachedLocations && cachedLocations.length > 0) {
+    populateLocationDatalists(cachedLocations);
+  }
+
+  if (topbarInput && topbarDropdown) {
+    let debounceTimer = null;
+
+    topbarInput.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const query = (topbarInput.value || "").trim();
+        if (!query || query.length < 2) {
+          topbarDropdown.classList.remove("active");
+          topbarDropdown.innerHTML = "";
+          return;
+        }
+        renderTopbarSearchResults(query);
+      }, 150);
+    });
+
+    topbarInput.addEventListener("focus", () => {
+      const query = (topbarInput.value || "").trim();
+      if (query.length >= 2) renderTopbarSearchResults(query);
+    });
+
+    topbarInput.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        topbarDropdown.classList.remove("active");
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        const firstRow = topbarDropdown.querySelector(".search-result-row");
+        if (firstRow) {
+          firstRow.click();
+        } else {
+          const q = topbarInput.value.trim();
+          if (q) {
+            topbarDropdown.classList.remove("active");
+            navigate("map");
+            setTimeout(() => {
+              if (mapInput) {
+                mapInput.value = q;
+                performMapSearch(q);
+              }
+            }, 250);
+          }
+        }
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("#topbar-search-wrap")) {
+        topbarDropdown.classList.remove("active");
+      }
+    });
+  }
+
+  if (mapInput && mapDropdown) {
+    let mapDebounce = null;
+
+    mapInput.addEventListener("input", () => {
+      clearTimeout(mapDebounce);
+      mapDebounce = setTimeout(() => {
+        const query = (mapInput.value || "").trim();
+        if (!query || query.length < 2) {
+          mapDropdown.classList.remove("active");
+          mapDropdown.innerHTML = "";
+          return;
+        }
+        renderMapSearchResults(query);
+      }, 150);
+    });
+
+    mapInput.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        mapDropdown.classList.remove("active");
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        const firstRow = mapDropdown.querySelector(".search-result-row");
+        if (firstRow) {
+          firstRow.click();
+        } else {
+          performMapSearch(mapInput.value.trim());
+        }
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("#map-search-bar-wrap")) {
+        mapDropdown.classList.remove("active");
+      }
+    });
+  }
+}
 
 async function loadLocations(state = "all") {
   try {
@@ -843,7 +1489,8 @@ async function loadLocations(state = "all") {
       populateLocationDatalists(cachedLocations);
     }
   } catch (e) {
-    console.warn("Failed to load locations:", e);
+    console.warn("Failed to load locations from API, using default NE locations:", e);
+    populateLocationDatalists(cachedLocations);
   }
 }
 
@@ -957,7 +1604,8 @@ function initRouteMap() {
 }
 
 // ── Route Map: tile layer switcher ─────────────────────────────────
-window.setRouteMapLayer = function (mode) {
+let routePitch = 38;
+window.setRouteMapLayer = function (mode, preserve3D = true) {
   if (!routeMap) return;
   routeCurrentMapMode = mode;
 
@@ -977,33 +1625,42 @@ window.setRouteMapLayer = function (mode) {
     document.getElementById(`rmap-mode-${m}`)?.classList.toggle("active", m === mode);
   });
 
-  // Exit 3D if switching tile
-  if (routeIs3D) toggleRouteMap3D();
+  if (!preserve3D && routeIs3D) {
+    window.toggleRouteMap3D(false);
+  }
 };
 
 // ── Route Map: 3D perspective toggle ─────────────────────────────
-window.toggleRouteMap3D = function () {
+window.toggleRouteMap3D = function (forceState) {
   if (!routeMap) return;
-  routeIs3D = !routeIs3D;
+  routeIs3D = typeof forceState === "boolean" ? forceState : !routeIs3D;
   const mapEl = document.getElementById("route-map");
   const btn   = document.getElementById("rmap-mode-3d");
 
   if (routeIs3D) {
-    mapEl.style.transform      = "perspective(1200px) rotateX(28deg) scale(1.15)";
-    mapEl.style.transformOrigin = "center top";
-    mapEl.style.transition      = "transform 0.5s ease";
-    mapEl.style.overflow        = "hidden";
-    if (btn) { btn.classList.add("active"); btn.textContent = "Exit 3D"; }
+    mapEl.style.transform      = `perspective(1000px) rotateX(${routePitch}deg) scale(1.18)`;
+    mapEl.style.transformOrigin = "center 45%";
+    mapEl.style.transition      = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+    mapEl.classList.add("map-in-3d");
+    if (btn) {
+      btn.classList.add("active");
+      btn.innerHTML = `🏔️ 3D Active <span class="active-dot"></span>`;
+    }
     // Terrain gives better depth in 3D
-    if (routeCurrentMapMode === "osm") window.setRouteMapLayer("terrain");
+    if (routeCurrentMapMode === "osm") {
+      window.setRouteMapLayer("terrain", true);
+    }
   } else {
     mapEl.style.transform  = "none";
-    mapEl.style.transition = "transform 0.5s ease";
-    if (btn) { btn.classList.remove("active"); btn.textContent = "3D"; }
-    document.getElementById("rmap-mode-3d")?.classList.remove("active");
+    mapEl.style.transition = "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)";
+    mapEl.classList.remove("map-in-3d");
+    if (btn) {
+      btn.classList.remove("active");
+      btn.innerHTML = `🏔️ 3D Mode`;
+    }
   }
 
-  setTimeout(() => routeMap.invalidateSize(), 520);
+  setTimeout(() => { if (routeMap) routeMap.invalidateSize(); }, 520);
 };
 
 // ── Route Planning Vehicle Selection State ─────────────────────
@@ -2304,4 +2961,8 @@ window.exportDashboard = function () { exportPDF(); };
 // ─────────────────────────────────────────────────────────────
 // BOOT
 // ─────────────────────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", init);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
