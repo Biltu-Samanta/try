@@ -1,0 +1,18 @@
+# Render Blueprint Specification for NorthEastRiskAI
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Backend API & ML Inference Service
+  - type: web
+    name: northeast-risk-ai-api
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements-prod.txt
+    startCommand: gunicorn -w 2 -b 0.0.0.0:$PORT backend.wsgi:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: PORT
+        value: 10000

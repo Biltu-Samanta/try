@@ -1,0 +1,539 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-critical: var(--critical);
+  --color-warning: var(--warning);
+  --color-watch: var(--watch);
+  --color-safe: var(--safe);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-theme-teal: oklch(0.62 0.16 185);
+  --color-theme-coral: oklch(0.65 0.21 28);
+  --color-theme-amber: oklch(0.72 0.17 70);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-report: var(--report);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-ticker: ticker 32s linear infinite;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.91 0.012 245);
+  --foreground: oklch(0.24 0.025 252);
+  --card: oklch(0.98 0.006 245 / 78%);
+  --card-foreground: oklch(0.24 0.025 252);
+  --popover: oklch(0.98 0.006 245 / 90%);
+  --popover-foreground: oklch(0.24 0.025 252);
+  --primary: oklch(0.58 0.2 255);
+  --primary-foreground: oklch(0.99 0.003 250);
+  --secondary: oklch(0.98 0.006 245 / 48%);
+  --secondary-foreground: oklch(0.27 0.025 252);
+  --muted: oklch(0.92 0.012 245 / 72%);
+  --muted-foreground: oklch(0.48 0.025 250);
+  --accent: oklch(0.82 0.16 82);
+  --accent-foreground: oklch(0.2 0.04 250);
+  --destructive: oklch(0.62 0.22 22);
+  --destructive-foreground: oklch(0.98 0.01 250);
+  --border: oklch(1 0 0 / 48%);
+  --input: oklch(1 0 0 / 62%);
+  --ring: oklch(0.58 0.2 255);
+  --critical: oklch(0.64 0.23 20);
+  --warning: oklch(0.79 0.17 62);
+  --watch: oklch(0.86 0.16 96);
+  --safe: oklch(0.78 0.16 165);
+  --glass: oklch(0.99 0.004 245 / 52%);
+  --glass-base: oklch(0.99 0.004 245);
+  --glass-opacity: 58%;
+  --glass-border: oklch(1 0 0 / 58%);
+  --report: oklch(0.72 0.17 315);
+  --map-vehicle-ring: oklch(0.98 0.01 195);
+  --glow-primary: color-mix(in oklab, var(--primary) 30%, transparent);
+  --glow-critical: color-mix(in oklab, var(--critical) 30%, transparent);
+  --glow-warning: color-mix(in oklab, var(--warning) 26%, transparent);
+  --glow-safe: color-mix(in oklab, var(--safe) 26%, transparent);
+  --chart-1: oklch(0.78 0.15 195);
+  --chart-2: oklch(0.82 0.16 82);
+  --chart-3: oklch(0.64 0.23 20);
+  --chart-4: oklch(0.78 0.16 165);
+  --chart-5: oklch(0.7 0.17 300);
+  --sidebar: oklch(0.99 0.004 245 / 58%);
+  --sidebar-foreground: oklch(0.24 0.025 252);
+  --sidebar-primary: oklch(0.58 0.2 255);
+  --sidebar-primary-foreground: oklch(0.99 0.003 250);
+  --sidebar-accent: oklch(1 0 0 / 52%);
+  --sidebar-accent-foreground: oklch(0.24 0.025 252);
+  --sidebar-border: oklch(1 0 0 / 55%);
+  --sidebar-ring: oklch(0.58 0.2 255);
+}
+
+.theme-dark {
+  --background: oklch(0.17 0.02 255);
+  --foreground: oklch(0.99 0 0);
+  --card: oklch(0.22 0.025 255 / 78%);
+  --card-foreground: oklch(0.99 0 0);
+  --popover: oklch(0.22 0.025 255 / 92%);
+  --popover-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.78 0.15 250);
+  --primary-foreground: oklch(0.16 0.02 255);
+  --secondary: oklch(0.28 0.025 255 / 55%);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.26 0.02 255 / 70%);
+  --muted-foreground: oklch(0.85 0.015 250);
+  --accent: oklch(0.86 0.14 82);
+  --accent-foreground: oklch(0.18 0.03 255);
+  --critical: oklch(0.72 0.21 20);
+  --warning: oklch(0.85 0.16 70);
+  --watch: oklch(0.9 0.15 96);
+  --safe: oklch(0.85 0.15 165);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 18%);
+  --ring: oklch(0.78 0.15 250);
+  --glass-base: oklch(0.2 0.025 255);
+  --glass-border: oklch(1 0 0 / 16%);
+  --sidebar: oklch(0.2 0.025 255 / 66%);
+  --sidebar-foreground: oklch(0.99 0 0);
+  --sidebar-primary: oklch(0.78 0.15 250);
+  --sidebar-primary-foreground: oklch(0.16 0.02 255);
+  --sidebar-accent: oklch(1 0 0 / 10%);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(1 0 0 / 14%);
+  --sidebar-ring: oklch(0.78 0.15 250);
+  --map-vehicle-ring: oklch(0.3 0.03 195);
+}
+
+.ui-theme-teal { --primary: oklch(0.62 0.16 185); --ring: oklch(0.62 0.16 185); --sidebar-primary: oklch(0.62 0.16 185); }
+.ui-theme-coral { --primary: oklch(0.65 0.21 28); --ring: oklch(0.65 0.21 28); --sidebar-primary: oklch(0.65 0.21 28); }
+.ui-theme-amber { --primary: oklch(0.72 0.17 70); --ring: oklch(0.72 0.17 70); --sidebar-primary: oklch(0.72 0.17 70); }
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--critical) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px color-mix(in oklab, var(--critical) 0%, transparent);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility glass {
+  position: relative;
+  isolation: isolate;
+  background-color: color-mix(in oklab, var(--glass-base) var(--glass-opacity), transparent);
+  border: 1px solid oklch(1 0 0 / 30%);
+  backdrop-filter: blur(5px);
+  box-shadow:
+    0 8px 32px oklch(0 0 0 / 10%),
+    inset 0 1px 0 oklch(1 0 0 / 50%),
+    inset 0 -1px 0 oklch(1 0 0 / 10%);
+  transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 80%), transparent);
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(180deg, oklch(1 0 0 / 80%), transparent, oklch(1 0 0 / 30%));
+    pointer-events: none;
+  }
+}
+
+@utility glass-glow {
+  border-color: oklch(1 0 0 / 68%);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 86%) inset,
+    0 0 0 1px oklch(1 0 0 / 12%),
+    0 14px 36px -20px oklch(0.2 0.03 250 / 30%);
+}
+
+@utility glass-strong {
+  position: relative;
+  isolation: isolate;
+  background-color: color-mix(in oklab, var(--glass-base) calc(var(--glass-opacity) + 12%), transparent);
+  border: 1px solid oklch(1 0 0 / 30%);
+  backdrop-filter: blur(5px);
+  box-shadow:
+    0 8px 32px oklch(0 0 0 / 10%),
+    inset 0 1px 0 oklch(1 0 0 / 50%),
+    inset 0 -1px 0 oklch(1 0 0 / 10%);
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 80%), transparent);
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(180deg, oklch(1 0 0 / 80%), transparent, oklch(1 0 0 / 30%));
+    pointer-events: none;
+  }
+}
+
+.ui-range { height:.25rem; cursor:pointer; appearance:none; border-radius:999px; background:color-mix(in oklab,var(--primary) 24%,var(--muted)); }
+.ui-range::-webkit-slider-thumb { width:1rem; height:1rem; appearance:none; border:2px solid var(--primary-foreground); border-radius:999px; background:var(--primary); box-shadow:0 2px 8px color-mix(in oklab,var(--primary) 35%,transparent); }
+.ui-range::-moz-range-thumb { width:1rem; height:1rem; border:2px solid var(--primary-foreground); border-radius:999px; background:var(--primary); box-shadow:0 2px 8px color-mix(in oklab,var(--primary) 35%,transparent); }
+
+@utility glow-primary {
+  border-color: color-mix(in oklab, var(--primary) 25%, var(--glass-border));
+  box-shadow: 0 1px 0 oklch(1 0 0 / 72%) inset, 0 10px 28px -20px oklch(0.2 0.03 250 / 32%);
+}
+
+@utility glow-critical {
+  border-color: color-mix(in oklab, var(--critical) 28%, var(--glass-border));
+  box-shadow: 0 1px 0 oklch(1 0 0 / 72%) inset, 0 10px 28px -20px oklch(0.2 0.03 250 / 32%);
+}
+
+@utility glow-warning {
+  border-color: color-mix(in oklab, var(--warning) 30%, var(--glass-border));
+  box-shadow: 0 1px 0 oklch(1 0 0 / 72%) inset, 0 10px 28px -20px oklch(0.2 0.03 250 / 32%);
+}
+
+@utility glow-safe {
+  border-color: color-mix(in oklab, var(--safe) 28%, var(--glass-border));
+  box-shadow: 0 1px 0 oklch(1 0 0 / 72%) inset, 0 10px 28px -20px oklch(0.2 0.03 250 / 32%);
+}
+
+@utility luminous-control {
+  box-shadow: 0 1px 0 oklch(1 0 0 / 78%) inset, 0 10px 24px -18px oklch(0.2 0.03 250 / 30%);
+  &:hover {
+    border-color: oklch(1 0 0 / 78%);
+    background-color: oklch(1 0 0 / 66%);
+    box-shadow: 0 1px 0 oklch(1 0 0 / 90%) inset, 0 14px 28px -18px oklch(0.2 0.03 250 / 34%);
+  }
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--primary),
+    color-mix(in oklab, var(--accent) 70%, var(--primary))
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    overflow: hidden;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+}
+
+/* Leaflet & 3D Perspective Map View */
+.leaflet-container {
+  background: oklch(0.22 0.03 252);
+  font-family: var(--font-sans);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.map-wrapper-3d {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.map-three-d .map-wrapper-3d .leaflet-container {
+  transform: none;
+  transition: filter 0.4s ease;
+}
+
+.map-terrain .leaflet-tile-pane {
+  filter: saturate(1.18) contrast(1.1) brightness(1.02);
+}
+
+.map-three-d .leaflet-tile-pane,
+.theme-dark.map-three-d .leaflet-tile-pane,
+.theme-dark .map-three-d .leaflet-tile-pane {
+  filter: brightness(0.96) contrast(1.12) saturate(1.15) !important;
+}
+
+.theme-dark.map-terrain .leaflet-tile-pane,
+.theme-dark .map-terrain .leaflet-tile-pane {
+  filter: brightness(0.88) contrast(1.12) saturate(0.95) !important;
+}
+
+.map-vignette { background: linear-gradient(90deg, oklch(0.98 0.008 245 / 18%), transparent 42%, oklch(0.98 0.008 245 / 5%)); }
+.toolbar-button { display:grid; height:2.25rem; width:2.25rem; flex-shrink:0; place-items:center; border-radius:.5rem; color:var(--muted-foreground); transition:all .2s; }
+.toolbar-button:hover { background:oklch(1 0 0 / 62%); color:var(--primary); box-shadow:0 8px 18px -14px oklch(0.2 0.03 250 / 40%); }
+.sidebar-interactive {
+  position: relative;
+  overflow: hidden;
+  transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+.sidebar-interactive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 20%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 80%);
+  opacity: 0;
+  transform: translateX(-45%);
+  transition: opacity 180ms ease, transform 320ms ease;
+  pointer-events: none;
+}
+.sidebar-interactive:hover {
+  color: var(--primary);
+  background-color: color-mix(in oklab, var(--secondary) 82%, transparent);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 38%), 0 8px 20px -14px var(--primary);
+  transform: translateX(2px);
+}
+.sidebar-interactive:hover::before { opacity: 1; transform: translateX(45%); }
+.sidebar-interactive:active { transform: translateX(2px) scale(.95); }
+.sidebar-interactive:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.sidebar-interactive-icon { position: relative; z-index: 1; flex-shrink: 0; transition: transform 180ms ease, filter 180ms ease; }
+.sidebar-interactive:hover .sidebar-interactive-icon { transform: scale(1.16) rotate(-5deg); filter: drop-shadow(0 0 5px color-mix(in oklab, var(--primary) 58%, transparent)); }
+.sidebar-interactive-active .sidebar-interactive-icon { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--primary) 48%, transparent)); }
+.sidebar-interactive > span { position: relative; z-index: 1; }
+.dashboard-interactive {
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+}
+.dashboard-interactive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 22%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 72%);
+  opacity: 0;
+  transform: translateX(-55%);
+  transition: opacity 200ms ease, transform 480ms ease;
+  pointer-events: none;
+}
+.dashboard-interactive > * { position: relative; z-index: 1; }
+.dashboard-interactive:hover {
+  border-color: color-mix(in oklab, var(--primary) 38%, var(--border));
+  background-color: color-mix(in oklab, var(--glass-base) calc(var(--glass-opacity) * 0.75), transparent);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 50%), 0 16px 30px -20px var(--primary);
+  transform: translateY(-3px) scale(1.01);
+}
+.dashboard-interactive:hover::before { opacity: 1; transform: translateX(55%); }
+.dashboard-interactive:active { transform: translateY(-1px) scale(.99); }
+.dashboard-interactive-icon { transition: transform 200ms ease, filter 200ms ease; }
+.dashboard-interactive:hover .dashboard-interactive-icon {
+  transform: scale(1.2) rotate(-6deg);
+  filter: drop-shadow(0 0 5px color-mix(in oklab, currentColor 55%, transparent));
+}
+.glass-reflective {
+  border: 1px solid color-mix(in oklab, var(--primary) 10%, var(--glass-border));
+  background-color: color-mix(in oklab, var(--glass-base) calc(var(--glass-opacity) * 0.55), transparent);
+  background-image:
+    linear-gradient(115deg, transparent 32%, oklch(1 0 0 / 16%) 46%, transparent 62%),
+    linear-gradient(160deg, oklch(1 0 0 / 42%) 0%, oklch(1 0 0 / 8%) 38%, transparent 68%);
+  backdrop-filter: blur(6px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 60%),
+    inset 0 -1px 0 oklch(1 0 0 / 14%),
+    0 8px 32px oklch(0 0 0 / 10%);
+}
+.glass-reflective:hover {
+  border-color: color-mix(in oklab, var(--primary) 30%, var(--glass-border));
+  background-color: color-mix(in oklab, var(--glass-base) calc(var(--glass-opacity) * 0.7), transparent);
+}
+@media(max-width:767px){ main { padding-bottom:4.25rem; } }
+@media(prefers-reduced-motion:reduce){ * { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+.leaflet-tile-pane {
+  filter: saturate(0.72) contrast(0.9) brightness(1.04);
+}
+.leaflet-control-attribution,
+.leaflet-bar a {
+  background: oklch(0.98 0.006 245 / 92%) !important;
+  color: var(--foreground) !important;
+  border-color: var(--glass-border) !important;
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: oklch(0.98 0.006 245 / 94%);
+  color: var(--foreground);
+  border-radius: 0.75rem;
+}
+
+/* Dark theme surface tuning */
+.theme-dark,
+.theme-dark button,
+.theme-dark input,
+.theme-dark select {
+  color: var(--foreground);
+  text-shadow: 0 1px 3px oklch(0 0 0 / 60%);
+}
+.theme-dark .recharts-wrapper,
+.theme-dark .leaflet-container {
+  text-shadow: none;
+}
+.theme-dark .leaflet-popup-content-wrapper,
+.theme-dark .leaflet-popup-tip {
+  color: oklch(0.99 0 0);
+}
+.theme-dark .glass,
+.theme-dark .glass-strong {
+  border-color: oklch(1 0 0 / 12%);
+  box-shadow:
+    0 8px 32px oklch(0 0 0 / 45%),
+    inset 0 1px 0 oklch(1 0 0 / 12%),
+    inset 0 -1px 0 oklch(1 0 0 / 6%);
+}
+.theme-dark .glass::before,
+.theme-dark .glass-strong::before { background: linear-gradient(90deg, transparent, oklch(1 0 0 / 22%), transparent); }
+.theme-dark .glass::after,
+.theme-dark .glass-strong::after { background: linear-gradient(180deg, oklch(1 0 0 / 22%), transparent, oklch(1 0 0 / 8%)); }
+.theme-dark .glass-glow {
+  border-color: oklch(1 0 0 / 22%);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 18%),
+    0 0 0 1px oklch(1 0 0 / 8%),
+    0 14px 36px -20px oklch(0 0 0 / 60%);
+}
+.theme-dark .luminous-control {
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 12%), 0 10px 24px -18px oklch(0 0 0 / 60%);
+}
+.theme-dark .luminous-control:hover {
+  border-color: oklch(1 0 0 / 22%);
+  background-color: oklch(1 0 0 / 8%);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 16%), 0 14px 28px -18px oklch(0 0 0 / 60%);
+}
+.theme-dark .toolbar-button:hover { background: oklch(1 0 0 / 10%); box-shadow: 0 8px 18px -14px oklch(0 0 0 / 60%); }
+.theme-dark .map-vignette { background: linear-gradient(90deg, oklch(0.15 0.02 255 / 35%), transparent 42%, oklch(0.15 0.02 255 / 10%)); }
+.theme-dark .leaflet-tile-pane { filter: invert(1) hue-rotate(185deg) saturate(.62) brightness(.92) contrast(.88); }
+.theme-dark .map-terrain .leaflet-tile-pane { filter: invert(1) hue-rotate(185deg) saturate(.68) brightness(.94) contrast(.9); }
+.theme-dark .leaflet-control-attribution,
+.theme-dark .leaflet-bar a {
+  background: oklch(0.24 0.025 255 / 92%) !important;
+  color: var(--foreground) !important;
+  border-color: oklch(1 0 0 / 14%) !important;
+}
+.theme-dark .leaflet-popup-content-wrapper,
+.theme-dark .leaflet-popup-tip { background: oklch(0.24 0.025 255 / 94%); }
+
+/* Hide all scrollbars while keeping scroll behaviour */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Reflective translucent cards — dark theme */
+.theme-dark .glass-reflective {
+  border-color: color-mix(in oklab, var(--primary) 16%, oklch(1 0 0 / 14%));
+  background-image:
+    linear-gradient(115deg, transparent 32%, oklch(1 0 0 / 10%) 46%, transparent 62%),
+    linear-gradient(160deg, oklch(1 0 0 / 16%) 0%, oklch(1 0 0 / 3%) 38%, transparent 68%);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 22%),
+    inset 0 -1px 0 oklch(1 0 0 / 8%),
+    0 8px 32px oklch(0 0 0 / 35%);
+}
+
+
+
+/* Hide MapLibre attributions, watermarks, and control buttons */
+.maplibregl-ctrl-attrib,
+.maplibregl-ctrl-attrib-inner,
+.maplibregl-ctrl-attrib-button,
+.maplibregl-ctrl-logo,
+.maplibregl-ctrl-bottom-right,
+.maplibregl-ctrl-bottom-left,
+.maplibregl-compact {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

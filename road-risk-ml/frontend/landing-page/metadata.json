@@ -1,6 +1,0 @@
-{
-  "name": "3D Geospatial Platform",
-  "description": "Immersive 3D geospatial intelligence landing page with interactive Earth visualization, liquid glass UI, and real-time planetary telemetry.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

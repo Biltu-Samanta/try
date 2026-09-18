@@ -1,53 +1,80 @@
-# Duplicates and local backups
-Front - Copy/
-.git_backups/
+# ==============================================================================
+# Master .gitignore — NorthEastRiskAI Full-Stack Platform
+# ==============================================================================
 
-# Node / Web Frontend
+# Node.js & Frontend dependencies
 node_modules/
-*/node_modules/
-**/node_modules/
-.npm
-package-lock.json.bak
-*.bak
 dist/
+dist-ssr/
 .output/
+.nitro/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Python
+# Bun
+bun.lock
+bun.lockb
+bunfig.toml
+
+# Python / Virtual Environment
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyo
-*.pyd
+*.so
 .Python
-build/
-dist/
-*.egg-info/
-
-# Virtual environments
+env/
 venv/
 .venv/
-env/
 ENV/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Cache & Temporary files
-cache/
-osm_cache/
+# ML / Data Science artifacts & checkpoints
+*.h5
+*.ckpt
+*.pt
+*.pth
 .ipynb_checkpoints/
-data/raw/dem/*.hgt
-data/raw/dem/*.hgt.zip
 
-# IDE & OS
-.vscode/
+# Environment Variables & Secrets
+.env
+.env.production
+.env.staging
+.env.test
+.env.local
+*.pem
+*.key
+
+# IDE & OS Artifacts
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .idea/
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Logs
-*.log
-logs/
-
-# Secrets & environment
-.env
-.env.*
-*.key
+# TanStack / Lovable
+.tanstack/
+.lovable/

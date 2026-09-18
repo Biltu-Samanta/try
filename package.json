@@ -1,0 +1,25 @@
+{
+  "name": "northeast-risk-ai",
+  "version": "2.0.0",
+  "private": true,
+  "description": "NorthEastRiskAI — AI-Driven Road Accessibility Risk Intelligence & Resilient Logistics Routing for Northeast India",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "build:dev": "npm --prefix frontend run build:dev",
+    "preview": "npm --prefix frontend run preview",
+    "lint": "npm --prefix frontend run lint",
+    "format": "npm --prefix frontend run format"
+  },
+  "keywords": [
+    "geospatial",
+    "ai",
+    "logistics",
+    "xgboost",
+    "road-risk",
+    "smart-india-hackathon"
+  ],
+  "author": "SIH Team",
+  "license": "MIT"
+}

@@ -1,139 +1,135 @@
-# How to Run the Road Risk Analyzer Website
+# How to Run NorthEastRiskAI
 
-Welcome to the **Manipur Road Risk Analyzer Dashboard** (`ManipurRiskAI`).
-
----
-
-## ⚡ Quick Start (1 Simple Command)
-
-You do **NOT** need Node.js, `npm`, or Vite. The application is built using modern vanilla HTML5/CSS3/JavaScript (ES Modules) served directly by a lightweight Python Flask server.
-
-### Option A: Using the One-Click Launcher (Windows)
-Double-click `run.bat` in this directory, or run in PowerShell / Command Prompt:
-```powershell
-.\run.bat
-```
-This will automatically launch the server and open your default web browser to [http://localhost:5050](http://localhost:5050).
+This guide provides instructions on running both the **Backend API** and the **Frontend Dashboard**.
 
 ---
 
-### Option B: Manual Command Line (Recommended)
-
-1. **Open PowerShell or Terminal** in the project root directory:
-   ```powershell
-   cd "c:\Users\User\Documents\complete Road risk analyzer\road-risk-ml"
-   ```
-
-2. **Install requirements** (if not already installed):
-   ```powershell
-   python -m pip install -r requirements.txt
-   python -m pip install flask flask-cors
-   ```
-
-3. **Start the application**:
-   ```powershell
-   python frontend\api\app.py
-   ```
-
-4. **Open your browser** to:
-   ```
-   http://localhost:5050
-   ```
-
-That's it! Both the frontend website and the backend ML API are running together at **`http://localhost:5050`**.
+> [!IMPORTANT]
+> **Directory Update Notice:**
+> Following the recent project restructuring, the frontend has moved:
+> - **New Frontend Directory:** `SIH-prototype-level-02/frontend/`
+> - *(The old `road-risk-ml/frontend-UI` folder has been removed).*
+>
+> If your terminal is still pointing to the old folder, close that terminal tab and open a new terminal in `SIH-prototype-level-02` or `SIH-prototype-level-02/frontend`.
 
 ---
 
-## ⚠️ Why Did Previous Commands Fail?
+## ⚡ Method 1: One-Click Launch (Recommended for Windows)
 
-| Attempted Command | Why It Failed | Correct Way |
-|---|---|---|
-| `python app.js` | `app.js` is a **JavaScript file** for the web browser, not a Python script. Python cannot execute JavaScript. | Run `python frontend\api\app.py` |
-| `npm run dev` | There is **no Node.js / `package.json`**. This project avoids Node build dependencies and uses native browser ES Modules. | Run `python frontend\api\app.py` |
-| Double clicking `index.html` (`file:///...`) | Modern browsers block ES module imports (`import ... from "./api.js"`) on local `file://` protocol due to browser CORS security. | Serve via HTTP by running `app.py` and opening `http://localhost:5050` |
+In the root of the project (`SIH-prototype-level-02`), double-click **`scripts/run.bat`** or execute it in PowerShell / Command Prompt:
+
+```cmd
+scripts\run.bat
+```
+
+### What `run.bat` does automatically:
+1. Detects Node.js and Python on your system.
+2. Checks and installs required Python backend packages from `requirements.txt`.
+3. Launches the **Backend API Server** on port `5050` in a separate terminal.
+4. Checks and installs frontend dependencies (if `node_modules` is not present).
+5. Launches the **Vite Frontend Dev Server** in a separate terminal.
 
 ---
 
-## 🌐 Advanced: Running Frontend and Backend Separately
+## 🛠️ Method 2: Running Services Manually (Two Terminals)
 
-If you prefer to run the backend and frontend on two independent ports:
+If you prefer to start the backend and frontend separately in two terminal windows:
 
-### Terminal 1 — Backend API (Port 5050)
-```powershell
-cd "road-risk-ml"
-python frontend\api\app.py
+### Terminal 1 — Start the Python Backend API (Port 5050)
+
+```bash
+# 1. Navigate to the repository root
+cd "SIH-prototype-level-02"
+
+# 2. Install backend dependencies (first time only)
+pip install -r requirements.txt
+
+# 3. Start the Flask API server
+python backend/app.py
 ```
-*API Base URL:* `http://localhost:5050/api`  
-*Health Check:* `http://localhost:5050/api/status`
 
-### Terminal 2 — Frontend Static Server (Port 8000)
-```powershell
-cd "road-risk-ml\frontend"
-python -m http.server 8000
-```
-*Website URL:* `http://localhost:8000`
-
-Because CORS is enabled on the Flask backend, the frontend on port 8000 can communicate with the backend on port 5050 seamlessly.
+*The backend server will start at:* **`http://localhost:5050`**  
+*Verify it is running by checking:* **`http://localhost:5050/api/health`**
 
 ---
 
-## 🗺️ Dashboard Screens & Features Available
+### Terminal 2 — Start the Frontend Dashboard (Port 3000 / 8080)
 
-Once open at [http://localhost:5050](http://localhost:5050), explore the navigation bar at the top:
+```bash
+cd "SIH-prototype-level-02/frontend"
 
-1. **Dashboard Overview**
-   - KPI Summary: Active alerts, blocked roads count, vehicles in transit, safe routes.
-   - District-wise connectivity list (Green / Yellow / Red badges).
-   - Quick action shortcuts.
+# Install dependencies (if not already installed)
+npm install
 
-2. **GIS Accessibility Map**
-   - Interactive Leaflet map of Manipur with color-coded road segments (Open, Caution, Blocked).
-   - Real-time weather, landslide, and flood overlays.
-   - Clickable segments showing road condition, elevation slope, and delay estimation.
+# Start Vite dev server
+npm run dev
+```
 
-3. **Safe Route Planner**
-   - Select Origin & Destination across Manipur districts.
-   - Set risk tolerance threshold and vehicle type (Ambulance, Heavy Truck, Light Vehicle).
-   - Generates primary safe route + alternate evacuation detour.
-
-4. **Vehicle Tracking**
-   - Live simulated transit fleet with driver info, cargo, speed, and GPS coordinates.
-   - Interactive vehicle markers on the map.
-
-5. **Live Alerts & SSE**
-   - Real-time alerts feed with audio notifications, filterable by severity (Critical, High, Medium, Info).
-
-6. **Citizen Field Reports**
-   - Crowdsourced hazard submission form (potholes, landslides, waterlogging, roadblocks).
-
-7. **ML Analytics**
-   - Historical hazard trends, risk distribution charts, model accuracy metrics, and CSV/PDF export.
+*Open your browser at the URL shown in the terminal:* **`http://localhost:8080`** *(or `http://localhost:3000`)*.
 
 ---
 
-## 🛠️ Troubleshooting
+## 🌐 Default Ports & Access Points
 
-### 1. `Address already in use` or Port 5050 Conflict
-If port 5050 is already in use by a background process, run in PowerShell:
-```powershell
-Get-NetTCPConnection -LocalPort 5050 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
-```
-Then rerun `python frontend\api\app.py`.
+| Service | Address | Description |
+|:---|:---|:---|
+| **Frontend Web App** | `http://localhost:8080` | Full GIS accessibility dashboard, route simulator & alerts |
+| **Backend REST API** | `http://localhost:5050` | Flask server handling ML inference, OSRM routing & real data |
+| **API Health Check** | `http://localhost:5050/api/health` | Verifies ML engine and dataset connectivity |
+| **Telemetry Stream** | `http://localhost:5050/api/stream/alerts` | Live SSE stream for real-time map updates |
 
-### 2. Missing Packages
-If you get `ModuleNotFoundError: No module named 'flask'`:
-```powershell
-python -m pip install flask flask-cors pandas joblib scikit-learn
+---
+
+## 🔧 Production Build
+
+To build the optimized static production bundle for the frontend:
+
+```bash
+# From repository root:
+npm run build
+
+# To preview the production build locally:
+npm run preview
 ```
 
-### 3. ML Model Status
-When `frontend\api\app.py` starts, it will report:
+To run the backend with a production WSGI server (e.g. Waitress on Windows):
+```bash
+pip install waitress
+waitress-serve --port=5050 backend.wsgi:app
 ```
-=======================================================
-  ManipurRiskAI -- REST API Server
-  ML Model: OK Loaded
-  Dataset:  OK Loaded
-  Running at http://localhost:5050
-=======================================================
-```
-If the ML model `.joblib` file is not present, it will automatically fall back to synthetic risk scores without crashing.
+
+---
+
+## 🚀 Free Cloud Deployment
+
+Looking to host NorthEastRiskAI on the cloud for free?  
+See the full guide in [deployment.md](file:///c:/Users/User/Documents/SIH%20final/SIH-prototype-level-02/deployment.md) covering:
+- **Vercel + Render** (Recommended free dual stack)
+- **Hugging Face Spaces** (16GB RAM free all-in-one container)
+- **Koyeb + Netlify** (Fast, always-on alternative)
+- **Cloudflare Quick Tunnels** (Instant live link for hackathon evaluations in 10s)
+
+---
+
+## ❓ Troubleshooting & FAQs
+
+### 1. "Could not determine Node.js install directory"
+- **Cause:** Your terminal is open in a directory that was deleted or moved (`road-risk-ml/frontend-UI`).
+- **Fix:** Open a fresh terminal tab in `SIH-prototype-level-02/frontend` or `SIH-prototype-level-02`, then re-run `npm run dev`.
+
+### 2. "Python not recognized" or "npm not recognized"
+- Ensure Python and Node.js are added to your system `PATH`.
+- In Windows, standard install locations are:
+  - Node.js: `C:\Program Files\nodejs`
+  - Python: `C:\Users\<YourUser>\AppData\Local\Programs\Python\Python311` (or Python312)
+- Running `run.bat` automatically includes standard Node.js directories in the PATH for that session.
+
+### 3. "ML Backend Offline" banner in the frontend
+- Verify Terminal 1 is running `python backend/app.py` and listening on port `5050`.
+- Visit `http://localhost:5050/api/health` in your browser. If it returns `{"status": "online"}`, the frontend will automatically connect and display the green **"Python ML Engine Connected"** indicator.
+
+### 4. Port 5050 already in use
+- If port 5050 is busy, terminate existing Python instances or check running tasks:
+  ```powershell
+  Get-Process python -ErrorAction SilentlyContinue | Stop-Process
+  ```
